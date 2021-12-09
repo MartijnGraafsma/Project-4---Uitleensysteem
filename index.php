@@ -33,20 +33,21 @@
 
 <?php
 include "config.php";
+
 if(isset($_POST['submit'])) {
-
-
     $uname=$_POST['username'];
     $password=$_POST['password'];
-
-    if ($uname=='username' && $password=='password') {
-        heaeder
+    $sql=mysqli_query($conn, "SELECT wachtwoord from users where gebruikersnaam='$uname'");
+    if ($row=mysqli_fetch_array($sql)) {
+        if ($password==$row['wachtwoord']) {
+            header("location:home.html");
+            exit();
+        }
+        else    
+            echo "wachtwoord is onjuist";
     }
+    else
+        echo "Gebruikersnaam is onjuist";
 }
-
-$sql= "SELECT * FROM users WHERE gebruikersnaam = '".$uname."' AND wachtwoord='".$password."'"; 
-
-
-
 
 ?>
