@@ -1,16 +1,4 @@
-<?php
-include "config.php";
 
-$uname=$_POST['username'];
-$password=$_POST['password'];
-
-
-$sql= "SELECT * FROM users WHERE gebruikersnaam = '".$uname."' AND wachtwoord='".$password."' limit 1"; 
-
-
-
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +8,7 @@ $sql= "SELECT * FROM users WHERE gebruikersnaam = '".$uname."' AND wachtwoord='"
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
-    <title>Document</title>
+    <title>Login</title>
 </head>
 <body>
 
@@ -35,10 +23,30 @@ $sql= "SELECT * FROM users WHERE gebruikersnaam = '".$uname."' AND wachtwoord='"
                     <input type="password" class="userinfo" name="password" placeholder="Wachtwoord">
                 </div>
                 <div>
-                    <center><button class="inloggen" type="submit">Login</button><center>
+                    <center><button class="inloggen" name="submit" type="submit">Login</button><center>
                  </div>
             </form>
         </div>
         </div>
     </body>
 </html>
+
+<?php
+include "config.php";
+if(isset($_POST['submit'])) {
+
+
+    $uname=$_POST['username'];
+    $password=$_POST['password'];
+
+    if ($uname=='username' && $password=='password') {
+        heaeder
+    }
+}
+
+$sql= "SELECT * FROM users WHERE gebruikersnaam = '".$uname."' AND wachtwoord='".$password."'"; 
+
+
+
+
+?>
