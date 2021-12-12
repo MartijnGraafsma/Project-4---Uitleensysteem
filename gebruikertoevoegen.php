@@ -17,13 +17,29 @@
             <input type="txt" name="wachtwoord" class="nieuwe_user" placeholder="Wachtwoord">
             <button type="submit" class="voeg_toe">Voeg Toe</button>
         </form>
-        
+
     </div>
 </body>
 </html>
 
 <?php
+include "config.php";
 
-$naam=['naam'];
-$gbnaam=['gebruikersnaam'];
-$ww=['wachtwoord'];
+$sql = "SELECT * FROM `users`";
+
+
+echo "
+<table class='content-table'>
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>Aantal</th>
+    <th>Naam</th>
+    <th>Adres</th>
+    <th>E-mail</th>
+    <th>Telefoonnummer</th>
+    <th>Status</th>
+    <th>Delete</th>
+  </tr>
+</thead>";
+
