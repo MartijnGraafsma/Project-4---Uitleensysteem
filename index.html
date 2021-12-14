@@ -9,20 +9,22 @@
     <title>Document</title>
 </head>
 <body>
-    
-    <div class="login_border">
-        <h3>Login</h3>
-            <form class="login-form" method="POST">
+
+    <div class="login_container">
+        <div class="login-text"><h3>Login</h3></div>
+        <div class="login">
+            <form class="login-form" method="POST" action="#">
                 <div>
-                    <input type="text" class="gebruikersnaam" placeholder="Gebruikersnaam" >
+                    <input type="text" class="userinfo" name="username" placeholder="Gebruikersnaam" >
                 </div>
                 <div>
-                    <input type="text" class="wachtwoord" placeholder="Wachtwoord">
+                    <input type="text" class="userinfo" name="password" placeholder="Wachtwoord">
                 </div>
                 <div>
-                    <button type="submit">Login</button>
+                    <center><button class="inloggen" type="submit">Login</button><center>
                  </div>
             </form>
+        </div>
         </div>
     </body>
 </html>

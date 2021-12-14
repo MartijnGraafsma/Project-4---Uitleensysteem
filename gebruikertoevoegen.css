@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Montserrat;
+    border-spacing: border-box;
+    
+}
+
+.gegevens_container {
+    background-color: rgba(49, 67, 84, 0.8);
+    border: solid;
+    padding: 5px;
+    border-radius: 5px;
+    min-width: 200px;
+    width: 23%;
+    align-content: center;
+    vertical-align: middle;
+    margin-left: 15%;
+    margin-right: auto;
+    box-shadow: 0px 3px 3px 0px rgb(32, 37, 48);
+    margin-top: 17%;
+    position: absolute;
+}
+
+.nieuwe_user {
+    margin-top: 3%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1%;
+    width: 80%;
+    border-radius: 5px;
+    border-color: black;
+    background-color: #D3D3D3;
+    padding: 2%;
+    text-align: center;
+    display: flex;
+
+}
+
+.gebruiker_tekst {
+    text-align: center;
+}
+
+.voeg_toe {
+    border-color: black;
+    background-color: #00AFD6;
+    padding: 2%;
+    width: 30%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    border-radius: 3px;
+    display: flex;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.voeg_toe:hover {
+    background-color:rgb(0, 48, 63);
+    color: white;
+    border-color: #00AFD6;
+
+}
+
+.zoek_balk {
+    width: 30%;
+    margin-top: 17%;
+    margin-left:65%;
+    border-radius: 5px;
+    border-color: black;
+    background-color: #D3D3D3;
+    max-width: 300px;
+    padding: 1%;
+    text-align:center;
+    display: flex;
+    position: absolute;
+}
+
+.content-table {
+    
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.30);
+    margin-top: 19%;
+    margin-left: 8%;
+    position: absolute;
+}
+
+.content-table thead tr {
+    background-color: rgb(49, 67, 84);
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+  }

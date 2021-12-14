@@ -1,0 +1,117 @@
+/*
+apparaatoverzicht(leerling)
+*/
+body {
+  background-image: url("../systeem/foto.png");
+  background-size: 100%;
+}
+.button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+.docentinloggen {
+  background-color: rgb(255, 0, 0); 
+  color: black; 
+  position: absolute;
+  top: 5%;
+  right: 5%;
+}
+.docentinloggen:hover {
+  background-color: #7ee682;
+  color: white;
+}
+table {
+  width: 50%;
+  height: 20%;
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  text-align: center;
+}
+table, th, td {
+  border: 1px solid;
+}
+.table th, .table td { 
+  text-align: center; 
+  padding: 0.25em;
+}
+th, td {
+  background-color: rgb(255, 255, 255);
+}
+caption {
+  text-align: center;
+  padding-top: 10px;
+  color: rgb(0, 0, 0);
+  font-size:30px;
+} 
+.categorie {
+  width: 10%;
+  height: 30%;
+  background: rgba(255,255,255,1);
+  position: absolute;
+  top: 30%;
+  overflow: hidden;
+  text-align: center;
+}
+
+input[type="text"]{
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 10%;
+  height:5%;
+  width:50%;
+  text-align: left;
+  left: 25%;
+}
+input[type="submit"]{
+  position: absolute;
+  top: 10%;
+  height:5%;
+  right:20%;
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255); 
+}
+input:hover[type="submit"]{
+  background-color: #ff0000;
+  color: white;
+}
+
+/*login
+*/
+#main {
+  background-color: yellow;   
+  width: 600px;
+  height: 300px;
+  border-radius: 30px;
+}
+.text {
+  background-color: yellow;
+  color: rgb(65, 65, 65);
+  width: 250px;
+  font-weight: bold;
+  font-size: 20px;
+  border:none;
+  text-align: center;
+}
+#sub{
+  width: 250px;
+  height: 30px;
+  background-color: rgb(255, 255, 255);
+  border: none;
+}
+.login-button {
+  text-align: right;
+  float: right;    
+  }
+
+
+
