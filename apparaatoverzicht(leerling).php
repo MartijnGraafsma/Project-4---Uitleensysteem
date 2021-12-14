@@ -1,3 +1,19 @@
+<?php
+if(isset($_POST['search'])){
+    $valueToSearch = $_POST['valueToSearch'];
+    $query1 = "SELECT * FROM 'apparaatoverzicht(leerling)' WHERE CONCAT('id','productnaam','beschikbaarheid','inleverdatum') LIKE '%".$valueToSearch."%'";
+    $search_result = filterTable($query1);
+}else{
+    $query1 = "SELECT * FROM 'apparaatoverzicht(leerling)'";
+    $search_result = filterTable($query1);
+} 
+function filterTable($query1){
+    include 'conn.php';
+    $filter_Result = mysqli_query($conn, $query1);
+    return $filter_Result;
+}
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -7,19 +23,7 @@
     </head>
     <body>
         <a href="inloggen.php"><button class="docentinloggen">Docent inloggen</button></a>  
-        <table>
-            <caption>Orderoverzicht</caption>
-            <tr>
-                <th>Productnaam</th>
-                <th>Beschikbaarheid</th>
-                <th>Verwachte inleverdatum</th>
-            </tr>
-            <tr>
-                <td>Laptop Asus AB</td>
-                <td>Uitgeleend</td>
-                <td>08-12-2021</td>
-            </tr>
-        </table>
+        
 
         <div class="categorie">
             <p>Categorie</p>
@@ -41,8 +45,24 @@
             }
             ?>
         </div> 
-        
-        <input type="text" name="zoeken" value="Laptop Asus" maxlength="15">
-        <input type="submit" value="Zoeken">
+        <form action="apparaatoverzicht(leerling).php" method="POST">
+        <input type="text" name="valueToSearch" maxlength="15">
+        <input type="submit" name="search" value="Zoeken">
+        <table>
+            <caption>Orderoverzicht</caption>
+            <tr>
+                <th>Productnaam</th>
+                <th>Beschikbaarheid</th>
+                <th>Verwachte inleverdatum</th>
+            </tr>
+            <?php while($row = mysqli_fetch_array($search_result)):?>
+            <tr>
+                <td><?php echo $row['productnaam'];?></td>
+                <td><?php echo $row['beschikbaarheid'];?></td>
+                <td><?php echo $row['inleverdatum'];?></td>
+            </tr>
+            <?php endwhile;?>
+        </table>
+        </form>
     </body>
 </html>
