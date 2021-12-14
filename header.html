@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="header.css">
+</head>
+<body>
+<div class="header" id="header">
+  <label for="check" class="checkbtn" onclick="myFunction()"><i class="fas fa-bars" id="check"></i></label>
+  <div class="innerheader">
+    <div class="logo_container">
+      <h1>DeFriesePoort</h1> 
+    </div>
+      <div class="navbar">
+        <ul>
+          <a href="deviceinlever.php"><li>Apparaten inleveren</li></a>
+          <a href="index.html"><li>Uitloggen</li></a>
+          <a><li> <form  method='post' action="">
+        </form></li></a>
+        </ul>
+      <script>
+          function myFunction() {
+            var x = document.getElementById("header");
+            if (x.className === "header") {
+              x.className += " responsive";
+            } else {
+              x.className = "header";
+            }
+          }
+      </script>
+      </div>
+  </div>
+</div>    
+   
+</body>
+
+</html>
