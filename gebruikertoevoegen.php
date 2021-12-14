@@ -12,13 +12,14 @@
     <div class="gegevens_container">
         <h3 class="gebruiker_tekst">Gebruiker Toevoegen</h3>
         <form method="post" action="#">
-            <input type="txt" name="naam" class="nieuwe_user" placeholder="Naam">
+          
+            <input type="txt" name="naam" class="nieuwe_user" placeholder="Naam" required>
 
-            <input type="txt" name="gebruikersnaam"class="nieuwe_user" placeholder="Gebruikersnaam">
+            <input type="txt" name="gebruikersnaam"class="nieuwe_user" placeholder="Gebruikersnaam" required>
 
-            <input type="txt" name="wachtwoord" class="nieuwe_user" placeholder="Wachtwoord">
+            <input type="password" name="wachtwoord" class="nieuwe_user" placeholder="Wachtwoord" required>
 
-            <button type="submit" class="voeg_toe">Voeg Toe</button>
+            <button type="submit" name="submit" class="voeg_toe">Voeg Toe</button>
         </form>
 
     </div>
@@ -36,10 +37,21 @@
 <?php
 include "config.php";
 
-if ($conn -> connect_errno) {
-  echo "Failed to connect to MySQL: " . $conn -> connect_error;
-  exit();
+if(isset($_POST['submit'])) {
+  $naam = ($_POST['naam']);
+  $gebruikersnaam = ($_POST['gebruikersnaam']);
+  $wachtwoord = ($_POST['wachtwoord']);
+//prepare en bind
+  $insertSQL = "INSERT INTO users(naam, gebruikersnaam, wachtwoord ) values(?,?,?)";
+  $stmt = $conn-> prepare($insertSQL);
+  $stmt->bind_param("sss", $naam, $gebruikersnaam, $wachtwoord);
+//execute
+  $stmt -> execute();
+ 
+  $stmt -> close();
 }
+
+
 
 $sql ="SELECT * From `users`";
 
@@ -67,6 +79,12 @@ if ($result = $conn->query($sql)) {
   }
 }
 ?>
+<!-- zorgt dat het niet opnieuw toegevoegd wordt aan de database als je refreshed -->
+<script>
+if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+}
+</script>
 
 
 
