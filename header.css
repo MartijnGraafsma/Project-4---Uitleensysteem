@@ -14,7 +14,7 @@ body {
   height: 60px;
   display: block;
   background-color: white;
-  border: 2px solid #000;
+  border-bottom: 3px solid #000;
 }
 
 .innerheader {
@@ -32,18 +32,6 @@ body {
   float: left;
 }
 
-.logo_container h1 {
-  color: blue;
-  height: 100%;
-  display: table-cell;
-  vertical-align: middle;
-  font-size: 32px;
-  font-weight: 200;
-}
-
-.logo_container h1 span {
-  font-weight: 800;
-}
 
 .navbar{
   float: right;
@@ -73,6 +61,11 @@ body {
     text-decoration: underline;
 }
 
+.FotoFP{
+    width: 150px;
+    height: 60px;
+}
+
 #check {
   display: none;
   position: relative;
@@ -100,3 +93,4 @@ body {
       padding-top: 20px;
       font-size: 25px;
     }
+}
