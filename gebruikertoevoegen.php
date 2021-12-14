@@ -24,7 +24,7 @@
     </div>
     <div class="accounts_container">
         <form method="post" action="#">
-          <div class="zoek_container"><input name="search" class="nieuwe_user" placeholder="Zoeken"></div>
+          <div><input name="search" class="zoek_balk" placeholder="Zoeken"></div>
 
 
         </form>

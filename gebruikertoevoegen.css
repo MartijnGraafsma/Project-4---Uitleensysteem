@@ -15,10 +15,11 @@
     width: 23%;
     align-content: center;
     vertical-align: middle;
-    margin-left: 10%;
+    margin-left: 15%;
     margin-right: auto;
     box-shadow: 0px 3px 3px 0px rgb(32, 37, 48);
     margin-top: 17%;
+    position: absolute;
 }
 
 .nieuwe_user {
@@ -59,3 +60,37 @@
     border-color: #00AFD6;
 
 }
+
+.zoek_balk {
+    width: 30%;
+    margin-top: 17%;
+    margin-left:65%;
+    border-radius: 5px;
+    border-color: black;
+    background-color: #D3D3D3;
+    max-width: 300px;
+    padding: 1%;
+    text-align:center;
+    display: flex;
+    position: absolute;
+}
+
+.content-table {
+    
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.30);
+    margin-top: 19%;
+    margin-left: 8%;
+    position: absolute;
+}
+
+.content-table thead tr {
+    background-color: rgb(49, 67, 84);
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+  }
