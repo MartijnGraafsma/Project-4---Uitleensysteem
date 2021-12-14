@@ -1,3 +1,22 @@
+<?php
+if(isset($_POST['submitsearch'])){ //als user op zoekbutton klikt
+    $search = $_POST['search'];
+    $query = "SELECT * FROM `apparaatoverzichtleerling` WHERE CONCAT(`productnaam`,`beschikbaarheid`,`inleverdatum`) LIKE '%".$search."%'"; //
+    $submitsearch_result = filterTable($query);
+
+}else{
+    $query = "SELECT * FROM `apparaatoverzichtleerling`";
+    $submitsearch_result = filterTable($query);
+} 
+//connectie met de database
+function filterTable($query){
+    include 'conn.php';
+    $filter_Result = mysqli_query($conn, $query);
+    return $filter_Result;
+}
+?>
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -7,32 +26,28 @@
     </head>
     <body>
         <a href="inloggen.php"><button class="docentinloggen">Docent inloggen</button></a>  
-        <table>
-            <caption>Orderoverzicht</caption>
-            <tr>
-                <th>Productnaam</th>
-                <th>Beschikbaarheid</th>
-                <th>Verwachte inleverdatum</th>
-            </tr>
-            <tr>
-                <td>Laptop Asus AB</td>
-                <td>Uitgeleend</td>
-                <td>08-12-2021</td>
-            </tr>
-        </table>
-
+        <form action="" method="GET">
         <div class="categorie">
             <p>Categorie</p>
             <?php
             include("conn.php");
             error_reporting(0);
-            $query= "SELECT * FROM categorie";
-            $data = mysqli_query($conn,$query);
+
+            $query1= "SELECT * FROM categorie";
+            $data = mysqli_query($conn,$query1);
             if(mysqli_num_rows($data)>0){
-               foreach($data as $categorie){
+               foreach($data as $categorielijst){
+                   $checked=[];
+                   if(isset($_GET['categorie'])){
+                    $checked = $_GET['categorie'];
+                   }
                     ?>
-                    <input type="checkbox" name="categorie[]" value="<?= $categorie['id']; ?>">
-                    <?= $categorie['naam']; ?><br>
+                    <input type="checkbox" name="categorie[]" value="<?= $categorielijst['categorieid']; ?>"
+                    <?php if(in_array($categorielijst['categorieid'],$checked)){
+                        echo "gecheckd";
+                    } ?>
+                    />
+                    <?= $categorielijst['naam']; ?><br>
                     <?php
                 }
             }
@@ -40,9 +55,29 @@
                 echo "Nog geen categorie gemaakt";
             }
             ?>
-        </div> 
+            <button name="filter" class="docentinloggen">
+        </div>
+        </form>
         
-        <input type="text" name="zoeken" value="Laptop Asus" maxlength="15">
-        <input type="submit" value="Zoeken">
+        <form action="" method="post">
+            <input type="text" name="search" maxlength="15" placeholder="Zoek een apparaat">
+            <input type="submit" name="submitsearch" value="Zoeken">
+            <table>
+                <caption>Apparaatoverzicht</caption>
+                <tr>
+                    <th>Productnaam</th>
+                    <th>Beschikbaarheid</th>
+                    <th>Verwachte inleverdatum</th>
+                </tr>
+                <?php while($row = mysqli_fetch_array($submitsearch_result)):?>
+                <tr>
+                    <td><?php echo $row['productnaam'];?></td>
+                    <td><?php echo $row['beschikbaarheid'];?></td>
+                    <td><?php echo $row['inleverdatum'];?></td>
+                </tr>
+                <?php endwhile;?>
+            </table>
+        </form>
     </body>
 </html>
+
