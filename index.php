@@ -31,7 +31,7 @@
 
 <?php
 
-//verbingden met database
+//verbinden met database
 include "config.php";
 
 //checkt of de gebruikersnaam en wachtwoord overeen komen met een account uit de database
