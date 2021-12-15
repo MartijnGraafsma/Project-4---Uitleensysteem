@@ -26,6 +26,7 @@
     <div class="accounts_container">
         <form method="post" action="#">
           <div><input name="search" class="zoek_balk" placeholder="Zoeken"></div>
+          <div><button type="submit" name="searchbtn" class="searchbtn">Zoek</button>
 
 
         </form>
@@ -52,33 +53,43 @@ if(isset($_POST['submit'])) {
 }
 
 
+?>
+<?php
+if(isset($_POST['searchbtn'])){ //als user op zoekbutton klikt
+    $search = $_POST['search'];
+    $query = "SELECT * FROM users WHERE CONCAT(naam,gebruikersnaam,wachtwoord) LIKE '%".$search."%'";
+    $searchbtn_result = filterTable($query);
 
-$sql ="SELECT * From `users`";
-
-echo "
-<table class='content-table'>
-<thead>
-  <tr>
-    <th>ID</th>
-    <th>Naam</th>
-    <th>Gebruikersnaam</th>
-    <th>Wachtwoord</th>
-    
-  </tr>
-</thead>";
-
-if ($result = $conn->query($sql)) {
-  foreach ($result as $row) {
-  echo "
-
-  <tr>
-      <td>" . $row['id'] . "</td> 
-      <td>" . $row['naam'] . "</td>
-      <td>" . $row['gebruikersnaam'] . "</td>
-      <td>" . $row['wachtwoord'] . "</td>";
-  }
+}else{
+    $query = "SELECT * FROM users";
+    $searchbtn_result = filterTable($query);
+} 
+//connectie met de database
+function filterTable($query){
+    include 'conn.php';
+    $filter_Result = mysqli_query($conn, $query);
+    return $filter_Result;
 }
 ?>
+ <table class="content-table">
+   <thead>
+                <tr>
+                    <th>Id                  
+                    <th>Naam</th>
+                    <th>Gebruikersnaam</th>
+                    <th>Wachtwoord</th>
+                </tr>
+                <?php while($row = mysqli_fetch_array($searchbtn_result)):?>
+                <tr>
+                    <td><?php echo $row['id'];?></td>
+                    <td><?php echo $row['naam'];?></td>
+                    <td><?php echo $row['gebruikersnaam'];?></td>
+                    <td><?php echo $row['wachtwoord']?></td>
+                </tr>
+                <?php endwhile;?>
+                </thead>
+            </table>
+
 <!-- zorgt dat het niet opnieuw toegevoegd wordt aan de database als je refreshed -->
 <script>
 if ( window.history.replaceState ) {
