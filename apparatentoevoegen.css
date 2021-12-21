@@ -1,0 +1,69 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Montserrat;
+    
+}
+
+.container {
+    margin-right: 70%;
+    margin-left: 10%;
+    background-color: #567B9D;
+    border: solid;
+    border-width: 2px;
+}
+
+.top_tekst {
+    text-decoration: underline;
+}
+
+.beschrijving {
+    margin-top: 3%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1%;
+    width: 80%;
+    border-radius: 5px;
+    border-color: black;
+    background-color: #D3D3D3;
+    padding: 2%;
+    text-align: center;
+    display: flex;
+    border-width: 1px;
+}
+
+.apparaatnaam {
+    margin-top: 3%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1%;
+    width: 80%;
+    border-radius: 5px;
+    border-color: black;
+    background-color: #D3D3D3;
+    padding: 2%;
+    text-align: center;
+    display: flex;
+    border-width: 1px;
+}
+
+input[type="file"] {
+    display: none;
+}
+label {
+    color: white;
+    height: 30px;
+    width: 60%;
+    background-color: #00AFD6;
+    border-radius: 10px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size:15px; 
+    color: black;
+    border: solid;
+    border-width: 1px;
+    margin-bottom: 5%;
+}

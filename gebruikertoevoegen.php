@@ -25,9 +25,10 @@
     </div>
     <div class="accounts_container">
         <form method="post" action="#">
+          <div class="zoek-container">
           <div><input name="search" class="zoek_balk" placeholder="Zoeken"></div>
           <div><button type="submit" name="searchbtn" class="searchbtn">Zoek</button>
-
+          </div>
 
         </form>
     </div>
