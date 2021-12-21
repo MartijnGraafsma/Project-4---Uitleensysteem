@@ -7,37 +7,47 @@
 }
 
 .container {
-    margin-right: 70%;
-    margin-left: 10%;
-    background-color: #567B9D;
+    background-color: rgba(49, 67, 84, 0.8);
     border: solid;
+    padding: 5px;
+    border-radius: 5px;
+    min-width: 200px;
+    width: 23%;
+    align-content: center;
+    vertical-align: middle;
+    margin-left: 15%;
+    margin-right: auto;
+    box-shadow: 0px 3px 3px 0px rgb(32, 37, 48);
+    margin-top: 17%;
+    position: absolute;
     border-width: 2px;
 }
 
-.top_tekst {
-    text-decoration: underline;
+
+.top-tekst {
+    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 .beschrijving {
-    margin-top: 3%;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 1%;
+    margin-bottom: 2%;
     width: 80%;
+    height: 100px;
     border-radius: 5px;
     border-color: black;
     background-color: #D3D3D3;
-    padding: 2%;
-    text-align: center;
     display: flex;
     border-width: 1px;
+    text-align: top;
 }
 
 .apparaatnaam {
     margin-top: 3%;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 1%;
     width: 80%;
     border-radius: 5px;
     border-color: black;
