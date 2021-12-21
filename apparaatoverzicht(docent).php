@@ -16,7 +16,6 @@ function filterTable($query){
 }
 ?>
 
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -61,8 +60,20 @@ function filterTable($query){
             
         </div>
         </form>
-        
-        <!-- apparaatoverzicht-->
+       
+        <table>
+                <caption>Apparaatoverzicht</caption>
+                <tr>
+                    <th>Productnaam</th>
+                    <th>Beschikbaarheid</th>
+                    <th>Verwachte inleverdatum</th>
+                    <th colspan="2" align="center">Status</th>
+                </tr>
+                        
+    <!-- Zoekfunctie met apparaatoverzicht-->
+    <form action="" method="post">
+        <input type="text" name="search" maxlength="15" placeholder="Zoek een apparaat">
+        <input type="submit" name="submitsearch" value="Zoeken">
         <?php
         if(isset($_GET['categories'])){
             $categorieschecked = [];
@@ -73,72 +84,29 @@ function filterTable($query){
                 if(mysqli_num_rows($products_run) > 0){
                     foreach($products_run as $proditems):
                         ?>
-                        <table>
-                            <caption>Apparaatoverzicht</caption>
-                            <tr>
-                                <th>Productnaam</th>
-                                <th>Beschikbaarheid</th>
-                                <th>Verwachte inleverdatum</th>
-                            </tr>
                             <tr>
                                 <td><?= $proditems['productnaam']; ?></td>
                                 <td><?= $proditems['beschikbaarheid']; ?></td>
                                 <td><?= $proditems['inleverdatum']; ?></td>
+                                <td><a href='update.php?id=$row[id]&productnaam=$row[productnaam]&beschikbaarheid=$row[beschikbaarheid]&inleverdatum=$row[inleverdatum]&email=$row[email]><button type='submit' id='editbtn'>Wijzigen</button></a></td>
                             </tr>
-                        </table>
                         <?php endforeach;
                 }
             }    
         }else{
-            $products = "SELECT * FROM apparaatoverzicht";
-            $products_run = mysqli_query($conn, $products);
-            if(mysqli_num_rows($products_run) > 0){
-                foreach($products_run as $proditems):
-                    ?>
-                    <table>
-                        <caption>Apparaatoverzicht</caption>
-                        <tr>
-                            <th>Productnaam</th>
-                            <th>Beschikbaarheid</th>
-                            <th>Verwachte inleverdatum</th>
-                        </tr>
-                        <tr>
-                            <td><?= $proditems['productnaam']; ?></td>
-                            <td><?= $proditems['beschikbaarheid']; ?></td>
-                            <td><?= $proditems['inleverdatum']; ?></td>
-                        </tr>
-                    </table>
-                    <?php endforeach;    
-            }else{
-                echo "Geen product gevonden";
-            }
-        }
-        ?>
-
-        <!-- Zoekfunctie met apparaatoverzicht-->
-        <form action="" method="post">
-            <input type="text" name="search" maxlength="15" placeholder="Zoek een apparaat">
-            <input type="submit" name="submitsearch" value="Zoeken">
-            <table>
-                <caption>Apparaatoverzicht</caption>
-                <tr>
-                    <th>Productnaam</th>
-                    <th>Beschikbaarheid</th>
-                    <th>Verwachte inleverdatum</th>
-                    <th colspan="2" align="center">Wijzigen/Verwijderen</th>
-                </tr>
-                <?php while($row = mysqli_fetch_array($submitsearch_result)):
+            while($row = mysqli_fetch_array($submitsearch_result)):
                 echo "
                 <tr>
                     <td>".$row['productnaam']."</td>
                     <td>".$row['beschikbaarheid']."</td>
                     <td>".$row['inleverdatum']."</td>
                     <td><a href='update.php?id=$row[id]&productnaam=$row[productnaam]&beschikbaarheid=$row[beschikbaarheid]&inleverdatum=$row[inleverdatum]&email=$row[email]><button type='submit' id='editbtn'>Wijzigen</button></a></td>
-                    <td><a href='delete.php?username=$result[username]' onclick='return checkdelete()'><button type='submit' id='deletebtn'>Verwijderen</button></a></td>
                 </tr>
                 "?>
-                <?php endwhile;?>
-            </table>
+                <?php endwhile;
+        }
+        ?>
+        </table>
         </form>
     </body>
 </html>

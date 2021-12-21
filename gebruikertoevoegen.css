@@ -61,6 +61,10 @@
 
 }
 
+.zoek-container {
+    min-width: 400px;
+}
+
 .zoek_balk {
     width: 20%;
     margin-top: 17%;
@@ -103,8 +107,7 @@
     border-color: black;
     background-color: #00AFD6;
     padding: 0.5%;
-    width: 5%;
-    margin-top: 2%;
+    width: 5%;                   
     margin-bottom: 2%;
     border-radius: 3px;
     display: flex;

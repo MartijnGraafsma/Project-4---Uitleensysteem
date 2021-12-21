@@ -1,6 +1,6 @@
 /*apparaatoverzicht(leerling)*/
 body {
-  background-image: url("../systeem/foto.png");
+  background-image: url("friese-poort.jpg");
   background-size: 100%;
 }
 .docentinloggen {
@@ -119,3 +119,4 @@ input:hover[type="submit"]{
     font-size:18px
 }
 
+/*update */

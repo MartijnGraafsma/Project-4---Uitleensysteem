@@ -41,14 +41,15 @@ if(isset($_POST['submit'])) {
     $sql=mysqli_query($conn, "SELECT wachtwoord from users where gebruikersnaam='$uname'");
     if ($row=mysqli_fetch_array($sql)) {
         if ($password==$row['wachtwoord']) {
-            header("location:home.html");
+            header("location:apparaatoverzicht(leerling).php");
             exit();
         }
+        //als de info niet overeen komt met een account uit de data base print 
         else    
-            echo "<br><h2 class='onjuist'>wachtwoord is onjuist<h2>";
+            echo "<br><h2 class='onjuist'>Gebruikersnaam of Wachtwoord is onjuist<h2>";
     }
-    else
-        echo "<br><h2 class='onjuist'>Gebruikersnaam is onjuist<h2>";
+    else 
+    echo "<br><h2 class='onjuist'>Gebruikersnaam of Wachtwoord is onjuist<h2>";
 }
 
 ?>

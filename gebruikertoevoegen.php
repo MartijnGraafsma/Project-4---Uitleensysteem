@@ -25,9 +25,10 @@
     </div>
     <div class="accounts_container">
         <form method="post" action="#">
+          <div class="zoek-container">
           <div><input name="search" class="zoek_balk" placeholder="Zoeken"></div>
           <div><button type="submit" name="searchbtn" class="searchbtn">Zoek</button>
-
+          </div>
 
         </form>
     </div>
@@ -37,7 +38,7 @@
 </html>
 <?php
 include "config.php";
-
+//als je op de voeg toe knop klikt
 if(isset($_POST['submit'])) {
   $naam = ($_POST['naam']);
   $gebruikersnaam = ($_POST['gebruikersnaam']);
@@ -55,7 +56,7 @@ if(isset($_POST['submit'])) {
 
 ?>
 <?php
-if(isset($_POST['searchbtn'])){ //als user op zoekbutton klikt
+if(isset($_POST['searchbtn'])){ //als je op zoekbutton klikt
     $search = $_POST['search'];
     $query = "SELECT * FROM users WHERE CONCAT(naam,gebruikersnaam,wachtwoord) LIKE '%".$search."%'";
     $searchbtn_result = filterTable($query);
@@ -79,6 +80,7 @@ function filterTable($query){
                     <th>Gebruikersnaam</th>
                     <th>Wachtwoord</th>
                 </tr>
+                 <!-- loopt door de database tot hij alle informatie gevonden heeft -->
                 <?php while($row = mysqli_fetch_array($searchbtn_result)):?>
                 <tr>
                     <td><?php echo $row['id'];?></td>
@@ -86,9 +88,10 @@ function filterTable($query){
                     <td><?php echo $row['gebruikersnaam'];?></td>
                     <td><?php echo $row['wachtwoord']?></td>
                 </tr>
+                <!--eindigt de loop-->
                 <?php endwhile;?>
                 </thead>
-            </table>
+            </table>  
 
 <!-- zorgt dat het niet opnieuw toegevoegd wordt aan de database als je refreshed -->
 <script>
