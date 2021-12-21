@@ -9,9 +9,9 @@
 .container {
     margin-right: 70%;
     margin-left: 10%;
-    background-color: blue;
-    
-
+    background-color: #567B9D;
+    border: solid;
+    border-width: 2px;
 }
 
 .top_tekst {
@@ -19,12 +19,33 @@
 }
 
 .beschrijving {
-    margin:2%;
-    height: 5%;
+    margin-top: 3%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1%;
+    width: 80%;
+    border-radius: 5px;
+    border-color: black;
+    background-color: #D3D3D3;
+    padding: 2%;
+    text-align: center;
+    display: flex;
+    border-width: 1px;
 }
 
 .apparaatnaam {
-    margin: 2%;
+    margin-top: 3%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1%;
+    width: 80%;
+    border-radius: 5px;
+    border-color: black;
+    background-color: #D3D3D3;
+    padding: 2%;
+    text-align: center;
+    display: flex;
+    border-width: 1px;
 }
 
 input[type="file"] {
@@ -32,17 +53,17 @@ input[type="file"] {
 }
 label {
     color: white;
-    height: 60px;
-    width: 250px;
-    background-color: #f5af09;
-    
+    height: 30px;
+    width: 60%;
+    background-color: #00AFD6;
+    border-radius: 10px;
     margin: auto;
-    top: 0;
-    bottom: 0;  
-    left: 0;
-    right: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: ;
+    font-size:15px; 
+    color: black;
+    border: solid;
+    border-width: 1px;
+    margin-bottom: 5%;
 }
