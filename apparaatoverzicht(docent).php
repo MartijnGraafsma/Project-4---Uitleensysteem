@@ -60,19 +60,22 @@ function filterTable($query){
             
         </div>
         </form>
-        
+       
         <table>
-            <caption>Apparaatoverzicht</caption>
-            <tr>
-                <th>Productnaam</th>
-                <th>Beschikbaarheid</th>
-                <th>Verwachte inleverdatum</th>
-                <th colspan="2" align="center">Status</th>
-            </tr>
+                <caption>Apparaatoverzicht</caption>
+                <tr>
+                    <th>Productnaam</th>
+                    <th>Beschikbaarheid</th>
+                    <th>Verwachte inleverdatum</th>
+                    <th colspan="2" align="center">Status</th>
+                </tr>
                         
-        <!-- apparaatoverzicht-->
-    <?php
-    if(isset($_GET['categories'])){
+    <!-- Zoekfunctie met apparaatoverzicht-->
+    <form action="" method="post">
+        <input type="text" name="search" maxlength="15" placeholder="Zoek een apparaat">
+        <input type="submit" name="submitsearch" value="Zoeken">
+        <?php
+        if(isset($_GET['categories'])){
             $categorieschecked = [];
             $categorieschecked = $_GET['categories'];
             foreach($categorieschecked as $rowcate){
@@ -85,19 +88,13 @@ function filterTable($query){
                                 <td><?= $proditems['productnaam']; ?></td>
                                 <td><?= $proditems['beschikbaarheid']; ?></td>
                                 <td><?= $proditems['inleverdatum']; ?></td>
+                                <td><a href='update.php?id=$row[id]&productnaam=$row[productnaam]&beschikbaarheid=$row[beschikbaarheid]&inleverdatum=$row[inleverdatum]&email=$row[email]><button type='submit' id='editbtn'>Wijzigen</button></a></td>
                             </tr>
                         <?php endforeach;
                 }
             }    
-        }
-        ?>
-        
-        <!-- Zoekfunctie met apparaatoverzicht-->
-        <form action="" method="post">
-            <input type="text" name="search" maxlength="15" placeholder="Zoek een apparaat">
-            <input type="submit" name="submitsearch" value="Zoeken">
-            
-                <?php while($row = mysqli_fetch_array($submitsearch_result)):
+        }else{
+            while($row = mysqli_fetch_array($submitsearch_result)):
                 echo "
                 <tr>
                     <td>".$row['productnaam']."</td>
@@ -106,8 +103,10 @@ function filterTable($query){
                     <td><a href='update.php?id=$row[id]&productnaam=$row[productnaam]&beschikbaarheid=$row[beschikbaarheid]&inleverdatum=$row[inleverdatum]&email=$row[email]><button type='submit' id='editbtn'>Wijzigen</button></a></td>
                 </tr>
                 "?>
-                <?php endwhile;?>
-            </table>
+                <?php endwhile;
+        }
+        ?>
+        </table>
         </form>
     </body>
 </html>
