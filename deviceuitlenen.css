@@ -4,3 +4,40 @@
     text-decoration: none;
     list-style: none;
 }
+.leenknop{
+    background-color: #000;
+    color: white;
+    padding: 5px 10px;
+    margin-left: 360px;
+    font-size: medium;
+    cursor: pointer;
+}
+.leenknop:hover{
+    background-color: #fff;
+    color: #000;
+    transition: .3s;
+}
+.invulleen{
+    padding: 10px 20px;
+    margin-left: 300px;
+    color: black;
+    background-color: white;
+    transition: .2s;
+    outline: 2px solid #000;
+}
+.invulleen:hover{
+    background-color: rgb(238, 231, 231);
+    color: black;
+}
+.invulleenn{
+    padding: 10px 35.5px;
+    margin-left: 300px;
+    color: black;
+    background-color: white;
+    transition: .2s;
+    outline: 2px solid #000;
+}
+.invulleenn:hover{
+    background-color: rgb(238, 231, 231);
+    color: black;
+}

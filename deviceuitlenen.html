@@ -31,12 +31,25 @@
   </div>
 </div>    
    
-<div class="column">
-    <input type="text" placeholder="Voornaam..." required>
-    <input type="text" placeholder="Achternaam..." required>
-
-    <button type="button" placeholder="submit" class="btn">Login</button>
-</div>
+<form action="deviceuitlenen2.php" method="POST" class="column">
+    <br>
+    <input class="invulleen" type="text" name="Van" placeholder="Van" required>
+    <br>
+    <input class="invulleen" type="text" name="Uitgeleend" placeholder="Uitgeleend aan" required>
+    <br>
+    <input class="invulleen" type="email" name="Email" placeholder="Email" required>
+    <br>
+    <input class="invulleenn" type="date" name="Inleverdatum" placeholder="Inleverdatum" required>
+    <br>
+    <button class="leenknop" type="submit" name="submit">Leen uit</button>
+</form>
 </body>
+
+<div class="beschrijvingcolumn">
+
+
+    
+</div>
+
 
 </html>
