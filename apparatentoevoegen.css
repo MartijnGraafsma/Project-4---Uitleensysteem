@@ -35,13 +35,13 @@
     margin-right: auto;
     margin-bottom: 2%;
     width: 80%;
-    height: 100px;
+    bottom: 100px;
     border-radius: 5px;
     border-color: black;
     background-color: #D3D3D3;
     display: flex;
     border-width: 1px;
-    text-align: top;
+    height: 100px;
 }
 
 .apparaatnaam {
@@ -76,4 +76,76 @@ label {
     border: solid;
     border-width: 1px;
     margin-bottom: 5%;
+}
+
+.voeg-toe {
+    border-color: black;
+    background-color: #00AFD6;
+    padding: 2%;
+    width: 30%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    border-radius: 3px;
+    display: flex;
+    margin-left:auto;
+    margin-right:auto;  
+    border-width: 1px;
+}
+
+.voeg-toe:hover {
+    background-color:rgb(0, 48, 63);
+    color: white;
+    border-color: #00AFD6;
+}
+
+.cat-container{
+    background-color: rgba(49, 67, 84, 0.8);
+    border: solid;
+    padding: 5px;
+    border-radius: 5px;
+    min-width: 200px;
+    width: 23%;
+    align-content: center;
+    vertical-align: middle;
+    margin-left: 60%;
+    margin-right: auto;
+    box-shadow: 0px 3px 3px 0px rgb(32, 37, 48);
+    margin-top: 17%;
+    position: absolute;
+    border-width: 2px;
+}
+
+.cat-naam {
+    margin-top: 3%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    border-radius: 5px;
+    border-color: black;
+    background-color: #D3D3D3;
+    padding: 2%;
+    text-align: center;
+    display: flex;
+    border-width: 1px;
+    margin-bottom: 5%;
+}
+
+.cat-toevoegen {
+    border-color: black;
+    background-color: #00AFD6;
+    padding: 2%;
+    width: 30%;
+    margin-top: 2%;
+    margin-bottom: 3%;
+    border-radius: 3px;
+    display: flex;
+    margin-left:auto;
+    margin-right:auto;  
+    border-width: 1px;
+}
+
+.cat-toevoegen:hover {
+    background-color:rgb(0, 48, 63);
+    color: white;
+    border-color: #00AFD6;
 }

@@ -13,7 +13,7 @@
     <div class="container">
         <div>
             <h2 class="top-tekst">Apparaat toevoegen</h2>
-            <from method="POST" action="#">
+            <form method="POST" action="#">
                 <input class="apparaatnaam" type="text" name="productnaam" placeholder="Naam"> <br>
                 <input class="beschrijving" type="text" name="beschrijving" placeholder="Beschrijving...">
                 <input class="" type="file" id="file" name="foto" accept="image/*" placeholder="Voeg foto toe">
@@ -21,8 +21,54 @@
             <i class="far fa-file-image"></i> &nbsp;
               Voeg foto toe  
             </label>
+
+                <button class="voeg-toe" type="submit" name="voeg-toe">Voeg toe</button>
             </form>
         </div>
     </div>
+    <div class="cat-container">
+    <h2 class="top-tekst">Categorie toevoegen</h2>
+            <form method="post" action="#">
+                <input class="cat-naam" type="txt" name="categorie" placeholder="categorie-naam"> 
+                <button type="submit" class="cat-toevoegen" name="cat-voeg-toe">Voeg toe</button>   
+            </form>
+                
+    </div>
 </body>
 </html>
+<?php
+include "config.php";
+if(isset($_POST['cat-voeg-toe'])) {
+    $cat = $_POST['categorie'];
+      //prepare en bind
+        $insertSQL = "INSERT INTO categorie(naam) values(?)";
+        $stmt = $conn-> prepare($insertSQL);
+        $stmt->bind_param("s", $cat);
+      //execute
+        $stmt -> execute();
+       
+        $stmt -> close();
+      }
+
+?>
+<?php
+if(isset($_POST['voeg-toe'])) {
+    $productnaam = $_POST['productnaam'];
+    $beschrijving = $_POST['beschrijving'];
+      //prepare en bind
+        $insertSQL = "INSERT INTO apparaatoverzicht(productnaam, beschrijving) values(?,?)";
+        $stmt = $conn-> prepare($insertSQL);
+        $stmt->bind_param("ss", $productnaam, $beschrijving);
+      //execute
+        $stmt -> execute();
+       
+        $stmt -> close();
+      }
+
+?>
+<!-- zorgt dat het niet opnieuw toegevoegd wordt aan de database als je refreshed -->
+<script>
+if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+}
+</script>
