@@ -21,7 +21,21 @@
             <i class="far fa-file-image"></i> &nbsp;
               Voeg foto toe  
             </label>
+            <?php 
+            include "config.php";
+$resultSet = $conn->query("SELECT `naam` FROM `categorie`");
+?>
 
+<select class="dropdown" name="categorie">
+   <?php 
+   while($rows = $resultSet->fetch_assoc())
+    {
+   $naam = $rows['naam'];
+      echo"<option value='$naam'>$naam</option>";
+    }
+   ?>
+
+</select>
                 <button class="voeg-toe" type="submit" name="voeg-toe">Voeg toe</button>
             </form>
         </div>
@@ -66,6 +80,7 @@ if(isset($_POST['voeg-toe'])) {
       }
 
 ?>
+
 <!-- zorgt dat het niet opnieuw toegevoegd wordt aan de database als je refreshed -->
 <script>
 if ( window.history.replaceState ) {
