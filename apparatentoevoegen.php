@@ -25,12 +25,15 @@
             include "config.php";
 $resultSet = $conn->query("SELECT `naam` FROM `categorie`");
 ?>
-
+<!-- dropdown menu uit database -->
 <select class="dropdown" name="categorie">
+<option value='Categorie'>Categorie</option>
    <?php 
+  //  fetch_assoc zorgt ervoor dat alles er maar 1 keer komt te staan
    while($rows = $resultSet->fetch_assoc())
     {
    $naam = $rows['naam'];
+
       echo"<option value='$naam'>$naam</option>";
     }
    ?>
@@ -45,8 +48,25 @@ $resultSet = $conn->query("SELECT `naam` FROM `categorie`");
             <form method="post" action="#">
                 <input class="cat-naam" type="txt" name="categorie" placeholder="categorie-naam"> 
                 <button type="submit" class="cat-toevoegen" name="cat-voeg-toe">Voeg toe</button>   
+    <h2 class="top-tekst">Categorie verwijderen</h2> 
+    <button type="submit" class="cat-verwijderen" name="cat-verwijderen">Verwijderen</button>
+                <select class="dropdown" name="cat-ver">
+<option value='Categorie'>Categorie</option>
+   <?php 
+   $resultSet = $conn->query("SELECT `naam` FROM `categorie`");
+  //  fetch_assoc zorgt ervoor dat alles er maar 1 keer komt te staan
+   while($rows = $resultSet->fetch_assoc())
+    {
+   $naam = $rows['naam'];
+
+      echo"<option value='$naam'>$naam</option>";
+    }
+     
+   ?>
+   
+               
             </form>
-                
+            
     </div>
 </body>
 </html>
@@ -78,7 +98,20 @@ if(isset($_POST['voeg-toe'])) {
        
         $stmt -> close();
       }
+?>
 
+<?php
+if(isset($_POST['cat-verwijderen'])) {
+  $categorie = $_POST['cat-ver'];
+  
+    //prepare en bind
+      $insertSQL = "DELETE $categorie From `categorie`" ;
+      $stmt = $conn-> prepare($insertSQL);
+    //execute
+      $stmt -> execute();
+     
+      $stmt -> close();
+    }
 ?>
 
 <!-- zorgt dat het niet opnieuw toegevoegd wordt aan de database als je refreshed -->
