@@ -14,8 +14,8 @@
         <div>
             <h2 class="top-tekst">Apparaat toevoegen</h2>
             <form method="POST" action="#">
-                <input class="apparaatnaam" type="text" name="productnaam" placeholder="Naam"> <br>
-                <input class="beschrijving" type="text" name="beschrijving" placeholder="Beschrijving...">
+                <input class="apparaatnaam" type="text" name="productnaam" placeholder="Naam" required> <br>
+                <input class="beschrijving" type="text" name="beschrijving" placeholder="Beschrijving..." required>
                 <input type="text" name="beschikbaarheid" value="beschikbaar" hidden>
                 <input type="text" name="inleverdatum" value="/" hidden>
                 <input class="" type="file" id="file" name="foto" accept="image/*" placeholder="Voeg foto toe">
@@ -28,7 +28,7 @@
                 $resultSet = $conn->query("SELECT `naam` FROM `categorie`");
                 ?>
 <!-- dropdown menu uit database -->
-<select class="dropdown" name="categorie">
+<select class="dropdown" name="categorie" required>
 <option value='Categorie'>Categorie</option>
    <?php 
   //  fetch_assoc zorgt ervoor dat alles er maar 1 keer komt te staan
@@ -48,12 +48,13 @@
 <div class="cat-container">
     <h2 class="top-tekst">Categorie toevoegen</h2>
             <form method="post" action="#">
-                <input class="cat-naam" type="txt" name="categorie" placeholder="categorie-naam"> 
+                <input class="cat-naam" type="txt" name="categorie" placeholder="categorie-naam" required> 
                 <button type="submit" class="cat-toevoegen" name="cat-voeg-toe">Voeg toe</button>   
+    </form>
     <h2 class="top-tekst">Categorie verwijderen</h2> 
-    <button type="submit" class="cat-verwijderen" name="cat-verwijderen">Verwijderen</button>
-                <select class="dropdown" name="cat-ver">
-<option value='Categorie'>Categorie</option>
+    <form method="post" action="#">
+    <select class="dropdown" name="cat-ver" required>
+      <option value='Categorie'>Categorie</option>
    <?php 
    $resultSet = $conn->query("SELECT * FROM `categorie`");
   //  fetch_assoc zorgt ervoor dat alles er maar 1 keer komt te staan
@@ -65,6 +66,8 @@
     }
      
    ?>
+   </select>
+   <button type="submit" class="cat-verwijderen" name="cat-verwijderen" onclick='return checkdelete()'>Verwijderen</button>
    </form>
             
     </div>
@@ -80,8 +83,15 @@ if(isset($_POST['cat-voeg-toe'])) {
         $stmt->bind_param("s", $cat);
       //execute
         $stmt -> execute();
-       
         $stmt -> close();
+        if($stmt){
+          echo "<script>alert('categorie is toegevoegd, u kunt nu apparaat toevoegen')</script>";
+          ?>
+          <META HTTP-EQUIV="Refresh" CONTENT="0; URL=http://localhost/systeem/apparatentoevoegen.php">
+          <?php
+          }else{
+            echo "<script>alert('Het is niet gelukt om categorie toe te voegen, Probeer later opnieuw')</script>";
+          }
       }
 
 ?>
@@ -98,8 +108,15 @@ if(isset($_POST['voeg-toe'])) {
         $stmt->bind_param("sssss", $productnaam, $beschrijving, $beschikbaarheid,$inleverdatum,$categorie);
       //execute
         $stmt -> execute();
-       
         $stmt -> close();
+        if($stmt){
+          echo "<script>alert('apparaat is toegevoegd, u kunt nu apparaat uitlenen')</script>";
+          ?>
+          <META HTTP-EQUIV="Refresh" CONTENT="0; URL=http://localhost/systeem/apparatentoevoegen.php">
+          <?php
+          }else{
+            echo "<script>alert('Het is niet gelukt om apparaat toe te voegen, Probeer later opnieuw')</script>";
+          }
       }
 ?>
 
@@ -108,18 +125,29 @@ if(isset($_POST['cat-verwijderen'])) {
   $categorie = $_POST['cat-ver'];
   
     //prepare en bind
-      $insertSQL = "DELETE From categorie Where naam= $categorie" ;
-      $stmt = $conn-> prepare($insertSQL);
+      $deleteSQL = "DELETE From categorie Where naam= '$categorie'" ;
+      $stmt = $conn-> prepare($deleteSQL);
     //execute
       $stmt -> execute();
-     
       $stmt -> close();
-    }
+      if($stmt){
+        echo "<script>alert('categorie is verwijderd')</script>";
+        ?>
+        <META HTTP-EQUIV="Refresh" CONTENT="0; URL=http://localhost/systeem/apparatentoevoegen.php">
+        <?php
+        }else{
+          echo "<script>alert('Het is niet gelukt om $categorie te verwijderen, Probeer later opnieuw')</script>";
+        }
+      }
 ?>
 
 <!-- zorgt dat het niet opnieuw toegevoegd wordt aan de database als je refreshed -->
 <script>
 if ( window.history.replaceState ) {
   window.history.replaceState( null, null, window.location.href );
+}
+
+function checkdelete(){
+  return confirm('Weet je zeker dat je deze account willen verwijderen?');
 }
 </script>
