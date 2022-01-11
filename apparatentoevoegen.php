@@ -108,7 +108,7 @@ if(isset($_POST['cat-verwijderen'])) {
   $categorie = $_POST['cat-ver'];
   
     //prepare en bind
-      $insertSQL = "DELETE $categorie From `categorie`" ;
+      $insertSQL = "DELETE From categorie Where naam= $categorie" ;
       $stmt = $conn-> prepare($insertSQL);
     //execute
       $stmt -> execute();
