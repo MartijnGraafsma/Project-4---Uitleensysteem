@@ -32,7 +32,7 @@ function filterTable($query){
     </div>
       <div class="navbar">
         <ul>
-          <a href="index.php"><li>Docent inloggen</li></a>
+          <a href="inloggen.php"><li>Docent inloggen</li></a>
           <a><li> <form  method='post' action="">
         </form></li></a>
         </ul>
