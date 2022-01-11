@@ -4,11 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="gebruikertoevoegen.css">
+    <link rel="stylesheet" href="gebruikertoevoegen1.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
     <title>Gebruiker toevoegen</title>
 </head>
 <body>
+<div class="header" id="header">
+  <label for="check" class="checkbtn" onclick="myFunction()"><i class="fas fa-bars" id="check"></i></label>
+  <div class="innerheader">
+    <div class="logo_container">
+      <img class="FotoFP" src="logofriesepoort.png">
+    </div>
+      <div class="navbar">
+        <ul>
+        <a href="apparaatoverzicht(docent).php"><li>Apparatenoverzicht</li></a>
+          <a href="apparatentoevoegen.php"><li>Apparaten toevoegen</li></a>
+          <a href="gebruikertoevoegen.php"><li>Gebruiker toevoegen</li></a>
+          <a href="inloggen.php"><li>Uitloggen</li></a>
+          <a><li> <form  method='post' action="">
+        </form></li></a>
+        </ul>
+      <script>
+          function myFunction() {
+            var x = document.getElementById("header");
+            if (x.className === "header") {
+              x.className += " responsive";
+            } else {
+              x.className = "header";
+            }
+          }
+      </script>
+      </div>
+  </div>
+</div>
     <div class="gegevens_container">
         <h3 class="gebruiker_tekst">Gebruiker Toevoegen</h3>
         <form method="post" action="#">
