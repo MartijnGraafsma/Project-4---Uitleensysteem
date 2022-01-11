@@ -16,15 +16,17 @@
             <form method="POST" action="#">
                 <input class="apparaatnaam" type="text" name="productnaam" placeholder="Naam"> <br>
                 <input class="beschrijving" type="text" name="beschrijving" placeholder="Beschrijving...">
+                <input type="text" name="beschikbaarheid" value="beschikbaar" hidden>
+                <input type="text" name="inleverdatum" value="/" hidden>
                 <input class="" type="file" id="file" name="foto" accept="image/*" placeholder="Voeg foto toe">
-            <label for="file">
-            <i class="far fa-file-image"></i> &nbsp;
-              Voeg foto toe  
-            </label>
-            <?php 
-            include "config.php";
-$resultSet = $conn->query("SELECT `naam` FROM `categorie`");
-?>
+                <label for="file">
+                  <i class="far fa-file-image"></i> &nbsp;
+                  Voeg foto toe  
+                </label>
+                <?php 
+                include "config.php";
+                $resultSet = $conn->query("SELECT `naam` FROM `categorie`");
+                ?>
 <!-- dropdown menu uit database -->
 <select class="dropdown" name="categorie">
 <option value='Categorie'>Categorie</option>
@@ -39,11 +41,11 @@ $resultSet = $conn->query("SELECT `naam` FROM `categorie`");
    ?>
 
 </select>
-                <button class="voeg-toe" type="submit" name="voeg-toe">Voeg toe</button>
-            </form>
-        </div>
-    </div>
-    <div class="cat-container">
+<button class="voeg-toe" type="submit" name="voeg-toe">Voeg toe</button>
+</form>
+</div>
+</div>
+<div class="cat-container">
     <h2 class="top-tekst">Categorie toevoegen</h2>
             <form method="post" action="#">
                 <input class="cat-naam" type="txt" name="categorie" placeholder="categorie-naam"> 
@@ -53,7 +55,7 @@ $resultSet = $conn->query("SELECT `naam` FROM `categorie`");
                 <select class="dropdown" name="cat-ver">
 <option value='Categorie'>Categorie</option>
    <?php 
-   $resultSet = $conn->query("SELECT `naam` FROM `categorie`");
+   $resultSet = $conn->query("SELECT * FROM `categorie`");
   //  fetch_assoc zorgt ervoor dat alles er maar 1 keer komt te staan
    while($rows = $resultSet->fetch_assoc())
     {
@@ -63,9 +65,7 @@ $resultSet = $conn->query("SELECT `naam` FROM `categorie`");
     }
      
    ?>
-   
-               
-            </form>
+   </form>
             
     </div>
 </body>
@@ -89,10 +89,13 @@ if(isset($_POST['cat-voeg-toe'])) {
 if(isset($_POST['voeg-toe'])) {
     $productnaam = $_POST['productnaam'];
     $beschrijving = $_POST['beschrijving'];
+    $beschikbaarheid = $_POST['beschikbaarheid'];
+    $inleverdatum = $_POST['inleverdatum'];
+    $categorie = $_POST['categorie'];
       //prepare en bind
-        $insertSQL = "INSERT INTO apparaatoverzicht(productnaam, beschrijving) values(?,?)";
+        $insertSQL = "INSERT INTO apparaatoverzicht(productnaam, beschrijving,beschikbaarheid,inleverdatum,categorieid) values(?,?,?,?,?)";
         $stmt = $conn-> prepare($insertSQL);
-        $stmt->bind_param("ss", $productnaam, $beschrijving);
+        $stmt->bind_param("sssss", $productnaam, $beschrijving, $beschikbaarheid,$inleverdatum,$categorie);
       //execute
         $stmt -> execute();
        
