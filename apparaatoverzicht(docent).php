@@ -32,9 +32,10 @@ function filterTable($query){
     </div>
       <div class="navbar">
         <ul>
+        <a href="apparaatoverzicht(docent).php"><li>Apparatenoverzicht</li></a>
           <a href="apparatentoevoegen.php"><li>Apparaten toevoegen</li></a>
           <a href="gebruikertoevoegen.php"><li>Gebruiker toevoegen</li></a>
-          <a href="index.php"><li>Uitloggen</li></a>
+          <a href="inloggen.php"><li>Uitloggen</li></a>
           <a><li> <form  method='post' action="">
         </form></li></a>
         </ul>
