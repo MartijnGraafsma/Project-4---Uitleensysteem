@@ -16,22 +16,44 @@ function filterTable($query){
 }
 ?>
 
-
 <!DOCTYPE html>
 <html>
     <head>
-        <link href="style.css" rel="stylesheet">
+        <link href="apparaatoverzicht(leerling).css" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Apparaatoverzicht(leerling)</title>
     </head>
     <body>
-        <a href="index.php"><button class="docentinloggen">Docent inloggen</button></a>  
+        <div class="header" id="header">
+  <label for="check" class="checkbtn" onclick="myFunction()"><i class="fas fa-bars" id="check"></i></label>
+  <div class="innerheader">
+    <div class="logo_container">
+      <img class="FotoFP" src="logofriesepoort.png">
+    </div>
+      <div class="navbar">
+        <ul>
+          <a href="index.php"><li>Docent inloggen</li></a>
+          <a><li> <form  method='post' action="">
+        </form></li></a>
+        </ul>
+      <script>
+          function myFunction() {
+            var x = document.getElementById("header");
+            if (x.className === "header") {
+              x.className += " responsive";
+            } else {
+              x.className = "header";
+            }
+          }
+      </script>
+      </div>
+  </div>
+</div>
 
         <!-- categorie-->
         <form action="" method="GET">
             <div class="categorie">
-            <p>Categorie</p>
-            <button type="submit" class="categoriecheck">Filter</button>
+            <p>Categorie  <button type="submit" class="categoriecheck">Filter</button></p> 
             <?php
             include("conn.php");
             error_reporting(0);
@@ -68,7 +90,6 @@ function filterTable($query){
                     <th>Productnaam</th>
                     <th>Beschikbaarheid</th>
                     <th>Verwachte inleverdatum</th>
-                    <th colspan="2" align="center">Status</th>
                 </tr>
                
         
@@ -90,7 +111,6 @@ function filterTable($query){
                                 <td><?= $proditems['productnaam']; ?></td>
                                 <td><?= $proditems['beschikbaarheid']; ?></td>
                                 <td><?= $proditems['inleverdatum']; ?></td>
-                                <td><a href='update.php?id=$row[id]&productnaam=$row[productnaam]&beschikbaarheid=$row[beschikbaarheid]&inleverdatum=$row[inleverdatum]&email=$row[email]><button type='submit' id='editbtn'>Wijzigen</button></a></td>
                             </tr>
                         <?php endforeach;
                 }
@@ -102,7 +122,6 @@ function filterTable($query){
                     <td>".$row['productnaam']."</td>
                     <td>".$row['beschikbaarheid']."</td>
                     <td>".$row['inleverdatum']."</td>
-                    <td><a href='update.php?id=$row[id]&productnaam=$row[productnaam]&beschikbaarheid=$row[beschikbaarheid]&inleverdatum=$row[inleverdatum]&email=$row[email]><button type='submit' id='editbtn'>Wijzigen</button></a></td>
                 </tr>
                 "?>
                 <?php endwhile;
