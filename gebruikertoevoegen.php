@@ -41,11 +41,11 @@
         <h3 class="gebruiker_tekst">Gebruiker Toevoegen</h3>
         <form method="post" action="#">
           
-            <input type="txt" name="naam" class="nieuwe_user" placeholder="Naam" required>
+            <input type="txt" name="naam" class="nieuwe_user" placeholder="Naam" minlength="3" maxlength="15" required>
 
-            <input type="txt" name="gebruikersnaam"class="nieuwe_user" placeholder="Gebruikersnaam" required>
+            <input type="txt" name="gebruikersnaam"class="nieuwe_user" placeholder="Gebruikersnaam"minlength="4" maxlength="15"  required>
 
-            <input type="password" name="wachtwoord" class="nieuwe_user" placeholder="Wachtwoord" required>
+            <input type="password" name="wachtwoord" class="nieuwe_user" placeholder="Wachtwoord" minlength="4" maxlength="15" required>
 
             <button type="submit" name="submit" class="voeg_toe">Voeg Toe</button>
         </form>
