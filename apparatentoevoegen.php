@@ -74,6 +74,7 @@
 </body>
 </html>
 <?php
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 include "config.php";
 if(isset($_POST['cat-voeg-toe'])) {
     $cat = $_POST['categorie'];
@@ -95,17 +96,23 @@ if(isset($_POST['cat-voeg-toe'])) {
       }
 
 ?>
-<?php
+<?php 
+
+
 if(isset($_POST['voeg-toe'])) {
     $productnaam = $_POST['productnaam'];
     $beschrijving = $_POST['beschrijving'];
     $beschikbaarheid = $_POST['beschikbaarheid'];
     $inleverdatum = $_POST['inleverdatum'];
     $categorie = $_POST['categorie'];
+      
+    $stmt = $conn->prepare("SELECT categorieid From categorie Where naam = $categorie");
+    $stmt-> execute();
+      
       //prepare en bind
-        $insertSQL = "INSERT INTO apparaatoverzicht(productnaam, beschrijving,beschikbaarheid,inleverdatum,categorieid) values(?,?,?,?,?)";
-        $stmt = $conn-> prepare($insertSQL);
-        $stmt->bind_param("sssss", $productnaam, $beschrijving, $beschikbaarheid,$inleverdatum,$categorie);
+      $stmt = $conn->prepare("INSERT INTO apparaatoverzicht (productnaam, categorieid, beschikbaarheid, inleverdatum, beschrijving) VALUES (?, ?, ?, ?, ?)");
+
+      $stmt->bind_param("sssss", $productnaam, $stmt, $beschikbaarheid, $inleverdatum, $beschrijving);
       //execute
         $stmt -> execute();
         $stmt -> close();
