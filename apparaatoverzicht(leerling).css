@@ -1,0 +1,176 @@
+/*apparaatoverzicht(leerling)*/
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+}
+body {
+  background-image: url("friese-poort.png");
+  background-size: 100%;
+  font-family: 'Montserrat';
+}
+
+table {
+  width: 55%;
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  text-align: center;
+}
+table, th, td {
+  border: 1px solid;
+}
+.table th, .table td { 
+  text-align: center; 
+  padding: 0.25em;
+}
+th, td {
+  background-color: rgb(255, 255, 255);
+}
+caption {
+  text-align: center;
+  padding-top: 10px;
+  color: rgb(0, 0, 0);
+  font-size:30px;
+} 
+.categorie {
+  width: 10%;
+  height: 30%;
+  background: rgba(255,255,255,1);
+  position: absolute;
+  top: 30%;
+  overflow: hidden;
+  text-align: center;
+}
+
+input[type="text"]{
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 10%;
+  height:5%;
+  width:50%;
+  text-align: left;
+  left: 25%;
+}
+input[type="submit"]{
+  position: absolute;
+  top: 10%;
+  height:5%;
+  right:20%;
+  background-color: rgb(161, 161, 161);
+  color: rgb(0, 0, 0); 
+}
+
+input:hover[type="submit"]{
+  background-color: #838383;
+  color: rgb(0, 0, 0);
+  transition-duration: 0.5s;
+}
+
+.categoriecheck{
+  border: 3px solid green;
+  
+}
+.categoriecheck:hover {
+  background-color: #00ff2a;
+  text-decoration: none;
+  transition-duration: 0.5s;
+}
+
+#editbtn{
+  background-color:green;
+  color:white;
+  width:100px;
+  height:25px;
+  font-size:18px;
+}
+
+
+/*header */
+
+.header {
+  width: 100%;
+  height: 60px;
+  display: block;
+  background-color: white;
+  border-bottom: 3px solid #000;
+}
+
+.innerheader {
+  display: block;
+  width: 95%;
+  height: 100%;
+  margin: 0 auto;
+  background-color: white;
+  
+}
+
+.logo_container {
+  height: 100%;
+  display: table;
+  float: left;
+}
+
+
+.navbar{
+  float: right;
+  height: 100%;
+}
+
+.navbar a{
+  height: 100%;
+  display: table;
+  float: left;
+  padding: 20px 20px;
+
+}
+
+.navbar a li{
+  display: table-cell;
+  vertical-align: middle;
+  color: #005da4;
+  font-size: 16px;
+  height: 100%;
+  font-weight: 700;
+  line-height: 1.5;
+  font-family: Muli,Helvetica,sans-serif;
+}
+
+.navbar a li:hover {
+    text-decoration: underline;
+}
+
+.FotoFP{
+    width: 150px;
+    height: 60px;
+}
+
+#check {
+  display: none;
+  position: relative;
+}
+
+.checkbtn {
+  color: white;
+}
+
+.checkbtn:hover {
+  color:grey;
+}
+
+   @media screen and (max-width: 700px) {
+    .navbar a {
+      display: none;
+    }
+    }
+
+  @media screen and (max-width: 700px) {
+    #check {
+      display: block;
+      right: 4%;
+      position: absolute;
+      padding-top: 20px;
+      font-size: 25px;
+    }
+}

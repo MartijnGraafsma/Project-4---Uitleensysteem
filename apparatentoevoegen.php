@@ -4,12 +4,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="apparatentoevoegen.css">
+    <link rel="stylesheet" href="apparatentoevoegen1.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <title> "Apparaten toevoegen"</title>
 </head>
 <body>
+<div class="header" id="header">
+  <div class="innerheader">
+    <div class="logo_container">
+      <img class="FotoFP" src="logofriesepoort.png">
+    </div>
+      <div class="navbar">
+        <ul>
+        <a href="apparaatoverzicht(docent).php"><li>Apparatenoverzicht</li></a>
+        <a href="apparatentoevoegen.php"><li>Apparaten toevoegen</li></a>
+          <a href="gebruikertoevoegen.php"><li>Gebruiker toevoegen</li></a>
+          <a href="inloggen.php"><li>Uitloggen</li></a>
+          <a><li> <form  method='post' action="">
+        </form></li></a>
+        </ul>
+      <script>
+          function myFunction() {
+            var x = document.getElementById("header");
+            if (x.className === "header") {
+              x.className += " responsive";
+            } else {
+              x.className = "header";
+            }
+          }
+      </script>
+      </div>
+  </div>
+</div>
+    '
     <div class="container">
         <div>
             <h2 class="top-tekst">Apparaat toevoegen</h2>
