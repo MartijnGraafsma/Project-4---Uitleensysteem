@@ -42,8 +42,8 @@
         <div>
             <h2 class="top-tekst">Apparaat toevoegen</h2>
             <form method="POST" action="#">
-                <input class="apparaatnaam" type="text" name="productnaam" placeholder="Naam" required> <br>
-                <input class="beschrijving" type="text" name="beschrijving" placeholder="Beschrijving..." required>
+                <input class="apparaatnaam" type="text" name="productnaam" placeholder="Naam" minlength="4" maxlength="15" required> <br>
+                <input class="beschrijving" type="text" name="beschrijving" placeholder="Beschrijving..." minlength="5" maxlength="30"required>
                 <input type="text" name="beschikbaarheid" value="beschikbaar" hidden>
                 <input type="text" name="inleverdatum" value="/" hidden>
                 <input class="" type="file" id="file" name="foto" accept="image/*" placeholder="Voeg foto toe">
@@ -53,7 +53,7 @@
                 </label>
                 <?php 
                 include "config.php";
-                $resultSet = $conn->query("SELECT `naam` FROM `categorie`");
+                $resultSet = $conn->query("SELECT * FROM `categorie`");
                 ?>
 <!-- dropdown menu uit database -->
 <select class="dropdown" name="categorie" required>
@@ -62,9 +62,9 @@
   //  fetch_assoc zorgt ervoor dat alles er maar 1 keer komt te staan
    while($rows = $resultSet->fetch_assoc())
     {
-   $naam = $rows['naam'];
-
-      echo"<option value='$naam'>$naam</option>";
+      $naam = $rows['naam']; 
+      $categorieid = $rows['categorieid'];
+      echo"<option value='$categorieid'>$naam</option>";
     }
    ?>
 
@@ -76,7 +76,7 @@
 <div class="cat-container">
     <h2 class="top-tekst">Categorie toevoegen</h2>
             <form method="post" action="#">
-                <input class="cat-naam" type="txt" name="categorie" placeholder="categorie-naam" required> 
+                <input class="cat-naam" type="text" name="categorie" placeholder="categorie-naam" minlength="2" maxlength="15" required> 
                 <button type="submit" class="cat-toevoegen" name="cat-voeg-toe">Voeg toe</button>   
     </form>
     <h2 class="top-tekst">Categorie verwijderen</h2> 
@@ -102,7 +102,6 @@
 </body>
 </html>
 <?php
-mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 include "config.php";
 if(isset($_POST['cat-voeg-toe'])) {
     $cat = $_POST['categorie'];
@@ -124,23 +123,17 @@ if(isset($_POST['cat-voeg-toe'])) {
       }
 
 ?>
-<?php 
-
-
+<?php
 if(isset($_POST['voeg-toe'])) {
     $productnaam = $_POST['productnaam'];
     $beschrijving = $_POST['beschrijving'];
     $beschikbaarheid = $_POST['beschikbaarheid'];
     $inleverdatum = $_POST['inleverdatum'];
     $categorie = $_POST['categorie'];
-      
-    $stmt = $conn->prepare("SELECT categorieid From categorie Where naam = $categorie");
-    $stmt-> execute();
-      
       //prepare en bind
-      $stmt = $conn->prepare("INSERT INTO apparaatoverzicht (productnaam, categorieid, beschikbaarheid, inleverdatum, beschrijving) VALUES (?, ?, ?, ?, ?)");
-
-      $stmt->bind_param("sssss", $productnaam, $stmt, $beschikbaarheid, $inleverdatum, $beschrijving);
+        $insertSQL = "INSERT INTO apparaatoverzicht(productnaam, beschrijving,beschikbaarheid,inleverdatum,categorieid) values(?,?,?,?,?)";
+        $stmt = $conn-> prepare($insertSQL);
+        $stmt->bind_param("sssss", $productnaam, $beschrijving, $beschikbaarheid,$inleverdatum,$categorie);
       //execute
         $stmt -> execute();
         $stmt -> close();
