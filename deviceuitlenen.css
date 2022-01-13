@@ -4,19 +4,12 @@
     text-decoration: none;
     list-style: none;
 }
-.leenknop{
-    background-color: #000;
-    color: white;
-    padding: 10px 15px;
-    margin-left: 360px;
-    font-size: medium;
-    cursor: pointer;
+
+body {
+    background-color: rgb(218, 218, 218);
+    font-family: 'Montserrat';
 }
-.leenknop:hover{
-    background-color: #fff;
-    color: #000;
-    transition: .3s;
-}
+
 .invulleen{
     padding: 20px 30px;
     margin-left: 300px;
@@ -45,4 +38,104 @@
     position: absolute;
     float: left;
     margin-top: 150px;
+}
+
+
+
+
+.container {
+    background-color: rgba(49, 67, 84, 0.8);
+    border: solid;
+    padding: 5px;
+    border-radius: 5px;
+    min-width: 200px;
+    width: 23%;
+    align-content: center;
+    vertical-align: middle;
+    margin-left: 15%;
+    margin-right: auto;
+    box-shadow: 0px 3px 3px 0px rgb(32, 37, 48);
+    margin-top: 10%;
+    position: absolute;
+    border-width: 1px;
+}
+
+
+.top-tekst {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    text-decoration: underline;
+}
+
+.beschrijving {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2%;
+    margin-top:2%;
+    width: 80%;
+    bottom: 100px;
+    border-radius: 5px;
+    border-color: black;
+    background-color: #D3D3D3;
+    display: flex;
+    border-width: 1px;
+    height: 100px;
+}
+
+.apparaatnaam {
+    margin-top: 1%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    border-radius: 5px;
+    border-color: black;
+    background-color: #D3D3D3;
+    padding: 2%;
+    text-align: center;
+    display: flex;
+    border-width: 1px;
+}
+
+.voeg-toe {
+    border-color: black;
+    background-color: #00AFD6;
+    padding: 2%;
+    width: 30%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    border-radius: 3px;
+    display: flex;
+    margin-left:auto;
+    margin-right:auto;  
+    border-width: 1px;
+}
+
+.voeg-toe:hover {
+    background-color:rgb(0, 48, 63);
+    color: white;
+    border-color: #00AFD6;
+}
+
+.cat-container{
+    background-color: rgba(49, 67, 84, 0.8);
+    border: solid;
+    padding: 5px;
+    border-radius: 5px;
+    min-width: 200px;
+    width: 23%;
+    align-content: center;
+    vertical-align: middle;
+    margin-left: 60%;
+    margin-right: auto;
+    box-shadow: 0px 3px 3px 0px rgb(32, 37, 48);
+    margin-top: 10%;
+    position: absolute;
+    border-width: 2px;
+}
+
+.top-tekst2 {
+    margin-left: 4%;
+    text-decoration: underline;
+    font-size:25px ;
 }

@@ -31,9 +31,10 @@ body {
 
 
 .top-tekst {
-    text-align: center;
-    display: flex;
-    justify-content: center;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+
 }
 
 .beschrijving {

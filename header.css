@@ -64,9 +64,9 @@ body {
 .FotoFP{
     width: 150px;
     height: 60px;
-}
+} 
 
-#check {
+ #check {
   display: none;
   position: relative;
 }
@@ -93,4 +93,4 @@ body {
       padding-top: 20px;
       font-size: 25px;
     }
-}
+} 

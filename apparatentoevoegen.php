@@ -37,7 +37,7 @@
       </div>
   </div>
 </div>
-    '
+    
     <div class="container">
         <div>
             <h2 class="top-tekst">Apparaat toevoegen</h2>
