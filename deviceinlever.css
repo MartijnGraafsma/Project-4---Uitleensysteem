@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+.inleveren{
+    background-color:green;
+    color: white;
+    padding: 100px 150px;
+    margin-left: 360px;
+    font-size: medium;
+    cursor: pointer;
+}
+.inleveren:hover{
+    background-color: #fff;
+    color: #000;
+    transition: .3s;
+}
+
+
+.opmerking{
+    padding: 20px 30px;
+    margin-left: 300px;
+    color: black;
+    background-color: white;
+    transition: .2s;
+    outline: 2px solid #000;
+}
+.opmerking:hover{
+    background-color: rgb(238, 231, 231);
+    color: black;
+}
+
+
+
+.column{
+    position: absolute;
+    float: left;
+    margin-top: 150px;
+}
