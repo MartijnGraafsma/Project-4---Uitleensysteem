@@ -46,7 +46,7 @@
                 <input class="beschrijving" type="text" name="beschrijving" placeholder="Beschrijving..." minlength="5" maxlength="30"required>
                 <input type="text" name="beschikbaarheid" value="beschikbaar" hidden>
                 <input type="text" name="inleverdatum" value="/" hidden>
-                <input class="" type="file" id="file" name="foto" accept="image/*" placeholder="Voeg foto toe">
+                <input class="" type="file" id="file" name="image" accept="image/*" placeholder="Voeg foto toe">
                 <label for="file">
                   <i class="far fa-file-image"></i> &nbsp;
                   Voeg foto toe  
@@ -130,10 +130,12 @@ if(isset($_POST['voeg-toe'])) {
     $beschikbaarheid = $_POST['beschikbaarheid'];
     $inleverdatum = $_POST['inleverdatum'];
     $categorie = $_POST['categorie'];
+
+    $file = addslashes(file_get_contents($_FILES["foto"]["tmp_name"]));
       //prepare en bind
-        $insertSQL = "INSERT INTO apparaatoverzicht(productnaam, beschrijving,beschikbaarheid,inleverdatum,categorieid) values(?,?,?,?,?)";
+        $insertSQL = "INSERT INTO apparaatoverzicht(`productnaam`, `beschrijving`,`beschikbaarheid`,`inleverdatum`,`categorieid`, `image`) values(?,?,?,?,?)";
         $stmt = $conn-> prepare($insertSQL);
-        $stmt->bind_param("sssss", $productnaam, $beschrijving, $beschikbaarheid,$inleverdatum,$categorie);
+        $stmt->bind_param("sssss", $productnaam, $beschrijving, $beschikbaarheid,$inleverdatum,$categorie, $file);
       //execute
         $stmt -> execute();
         $stmt -> close();
