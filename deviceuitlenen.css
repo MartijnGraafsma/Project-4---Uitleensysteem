@@ -7,7 +7,7 @@
 .leenknop{
     background-color: #000;
     color: white;
-    padding: 5px 10px;
+    padding: 10px 15px;
     margin-left: 360px;
     font-size: medium;
     cursor: pointer;
@@ -18,7 +18,7 @@
     transition: .3s;
 }
 .invulleen{
-    padding: 10px 20px;
+    padding: 20px 30px;
     margin-left: 300px;
     color: black;
     background-color: white;
@@ -30,7 +30,7 @@
     color: black;
 }
 .invulleenn{
-    padding: 10px 35.5px;
+    padding: 20px 46px;
     margin-left: 300px;
     color: black;
     background-color: white;
@@ -40,4 +40,9 @@
 .invulleenn:hover{
     background-color: rgb(238, 231, 231);
     color: black;
+}
+.column{
+    position: absolute;
+    float: left;
+    margin-top: 150px;
 }

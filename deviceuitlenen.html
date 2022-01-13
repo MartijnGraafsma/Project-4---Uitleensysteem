@@ -4,8 +4,8 @@
     <link rel="stylesheet" href="header.css">
 </head>
 <body>
+  <!-- hieronder staat de navigatiebalk -->
 <div class="header" id="header">
-  <label for="check" class="checkbtn" onclick="myFunction()"><i class="fas fa-bars" id="check"></i></label>
   <div class="innerheader">
     <div class="logo_container">
       <img class="FotoFP" src="logofriesepoort.png">
@@ -30,7 +30,7 @@
       </div>
   </div>
 </div>    
-   
+   <!-- hieronder zorg ik ervoor dat je inputs hebt en die linken naar deviceuitlenen2.php waar ik ervoor zorg dat het in de databse komt -->
 <form action="deviceuitlenen2.php" method="POST" class="column">
     <br>
     <input class="invulleen" type="text" name="Van" placeholder="Van" required>
@@ -39,11 +39,26 @@
     <br>
     <input class="invulleen" type="email" name="Email" placeholder="Email" required>
     <br>
-    <input class="invulleenn" type="date" name="Inleverdatum" placeholder="Inleverdatum" required>
+    <input class="invulleenn" type="date" name="Inleverdatum" placeholder="Inleverdatum" id="date" required>
     <br>
     <button class="leenknop" type="submit" name="submit">Leen uit</button>
 </form>
-</body>
+<!-- hieronder word ervoor gezorgd dat je niet terug in de tijd kan bij date -->
+<script>
+  var date = new Date();
+  var tdate = date.getDate();
+  var month = date.getMonth() + 1;
+  if(tdate < 10){
+    tdate = '0' + tdate;
+  }
+  if(month < 10){
+    month = '0' + month;
+  }
+  var year = date.getUTCFullYear();
+  var minDate = year + "-" + month + "-" + tdate;
+  document.getElementById("date").setAttribute('min', minDate)
+  console.log(minDate);
+</script>
 
 <div class="beschrijvingcolumn">
 
@@ -51,5 +66,5 @@
     
 </div>
 
-
+</body>
 </html>
