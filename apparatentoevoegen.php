@@ -57,7 +57,7 @@
                 ?>
 <!-- dropdown menu uit database -->
 <select class="dropdown" name="categorie" required>
-<option value='Categorie'>Categorie</option>
+<option disabled hidden selected value='Categorie'>Categorie</option>
    <?php 
   //  fetch_assoc zorgt ervoor dat alles er maar 1 keer komt te staan
    while($rows = $resultSet->fetch_assoc())
@@ -82,7 +82,7 @@
     <h2 class="top-tekst">Categorie verwijderen</h2> 
     <form method="post" action="#">
     <select class="dropdown" name="cat-ver" required>
-      <option value='Categorie'>Categorie</option>
+      <option disabled hidden selected value='Categorie'>Categorie</option>
    <?php 
    $resultSet = $conn->query("SELECT * FROM `categorie`");
   //  fetch_assoc zorgt ervoor dat alles er maar 1 keer komt te staan
