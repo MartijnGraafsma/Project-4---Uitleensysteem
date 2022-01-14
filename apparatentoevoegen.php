@@ -118,7 +118,7 @@ if(isset($_POST['cat-voeg-toe'])) {
         if($stmt){
           echo "<script>alert('categorie is toegevoegd, u kunt nu apparaat toevoegen')</script>";
           ?>
-          <META HTTP-EQUIV="Refresh" CONTENT="0; URL=http://localhost/systeem/apparatentoevoegen.php">
+          <META HTTP-EQUIV="Refresh" CONTENT="0; URL=apparatentoevoegen.php">
           <?php
           }else{
             echo "<script>alert('Het is niet gelukt om categorie toe te voegen, Probeer later opnieuw')</script>";
@@ -135,7 +135,7 @@ if(isset($_POST['voeg-toe'])) {
     $categorie = $_POST['categorie'];
 
       //prepare en bind
-        $insertSQL = "INSERT INTO apparaatoverzicht(`productnaam`, `beschrijving`,`beschikbaarheid`,`inleverdatum`,`categorieid`, `image`) values(?,?,?,?,?)";
+        $insertSQL = "INSERT INTO apparaatoverzicht(`productnaam`, `beschrijving`,`beschikbaarheid`,`inleverdatum`,`categorieid`) values(?,?,?,?,?)";
         $stmt = $conn-> prepare($insertSQL);
         $stmt->bind_param("sssss", $productnaam, $beschrijving, $beschikbaarheid,$inleverdatum,$categorie);
       //execute
@@ -144,7 +144,7 @@ if(isset($_POST['voeg-toe'])) {
         if($stmt){
           echo "<script>alert('apparaat is toegevoegd, u kunt nu apparaat uitlenen')</script>";
           ?>
-          <META HTTP-EQUIV="Refresh" CONTENT="0; URL=http://localhost/systeem/apparatentoevoegen.php">
+          <META HTTP-EQUIV="Refresh" CONTENT="0; URL=apparatentoevoegen.php">
           <?php
           }else{
             echo "<script>alert('Het is niet gelukt om apparaat toe te voegen, Probeer later opnieuw')</script>";
@@ -165,7 +165,7 @@ if(isset($_POST['cat-verwijderen'])) {
       if($stmt){
         echo "<script>alert('categorie is verwijderd')</script>";
         ?>
-        <META HTTP-EQUIV="Refresh" CONTENT="0; URL=http://localhost/systeem/apparatentoevoegen.php">
+        <META HTTP-EQUIV="Refresh" CONTENT="0; URL=apparatentoevoegen.php">
         <?php
         }else{
           echo "<script>alert('Het is niet gelukt om $categorie te verwijderen, Probeer later opnieuw')</script>";
