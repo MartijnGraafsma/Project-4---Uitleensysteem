@@ -83,14 +83,12 @@ $opmerking=$_GET['opmerking'];
         <input name="van" value="" hidden>
         <input name="studentnr" value="" hidden>
         <input name="inleverdatum" value="/" hidden>
-        <br>
+        <br><!-- <a class="apparaatnaam"><?php echo "$opmerking" ?></a> -->
         <input class="apparaatnaam" type="text" name="uitgeleend" placeholder="Uitgeleend aan" value="<?php echo "$uitgeleend" ?>" required>
         <br>
         <input class="apparaatnaam" type="text" name="opmerking" placeholder="Nieuwe opmerking" required>
-        <!-- <a class="apparaatnaam"><?php echo "$opmerking" ?></a> -->
-        
+        <input class="voeg-toe" type="submit" name="submit" value="Inleveren">
       </form>
-
 <?php
 //haalt de opmerking uit de database
 $opmerkingg=$_GET['productnaam'];
@@ -108,7 +106,6 @@ echo"<div class='Cat-popup' id='opmerking'>
     </div>";
         }}
 ?>
-<button class="voeg-toe" type="submit" name="submit">Inleveren</button>
 </div>
 
 
