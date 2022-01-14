@@ -14,7 +14,7 @@ $opmerking=$_GET['opmerking'];
 
 <!DOCTYPE html>
 <head>
-    <link rel="stylesheet" href="deviceleen.css">
+    <link rel="stylesheet" href="deviceuitleen.css">
     <link rel="stylesheet" href="header.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
 </head>
@@ -70,13 +70,11 @@ $opmerking=$_GET['opmerking'];
     <a class="top-tekst2"><?php echo "$productnaam" ?></a>
     <br>
     <br>
-    <br>
-    <br>
-    <a><?php echo "$beschrijving" ?></a>
+   <a><?php echo "$beschrijving" ?></a>
 </div>
 
 <div class="inlever-container">
-<h2 class="top-tekst">INLEVER</h2>
+<h2 class="top-tekst">Inleveren</h2>
       <form action="deviceinlever.php" method="POST" class="column, ">
         <input name="id" value="<?php echo "$id" ?>" hidden>
         <input name="productnaam" value="<?php echo "$productnaam" ?>" hidden>
@@ -102,8 +100,8 @@ $opmerkingg=$_GET['productnaam'];
         foreach ($result as $row) {
 echo"<div class='Cat-popup' id='opmerking'>
       <form action='' method='POST' class='Lever-in'>
-     <center>   <p class='Nieuw'> opmerking </p> <br>
-     <textarea class='apparaatnaam' placeholder=' " . $row['opmerking'] . "' readonly          ></textarea>      <br> <br> <br>
+     <center> <br>
+     <textarea class='apparaatnaam' placeholder=' " . $row['opmerking'] . "' readonly          ></textarea>  <br>
       </center>
        
       </form>
