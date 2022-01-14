@@ -100,12 +100,12 @@ $opmerkingg=$_GET['productnaam'];
         if ($result = $conn->query($sql)) {
         foreach ($result as $row) {
 echo"<div class='Cat-popup' id='opmerking'>
-      <form action='' method='POST' class='Lever-in'>
+     
      <center> <br>
      <textarea class='apparaatnaam' placeholder=' " . $row['opmerking'] . "' readonly          ></textarea>  <br>
       </center>
        
-      </form>
+     
     </div>";
         }}
 ?>
