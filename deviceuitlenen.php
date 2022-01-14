@@ -77,7 +77,7 @@ $opmerking=$_GET['opmerking'];
 
 <div class="inlever-container">
 <h2 class="top-tekst">INLEVER</h2>
-      <form action="inlever.php" method="POST" class="column, ">
+      <form action="deviceinlever.php" method="POST" class="column, ">
         <input name="id" value="<?php echo "$id" ?>" hidden>
         <input name="productnaam" value="<?php echo "$productnaam" ?>" hidden>
         <input name="beschikbaarheid" value="Beschikbaar" hidden>
