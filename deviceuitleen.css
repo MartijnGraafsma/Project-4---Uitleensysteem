@@ -135,7 +135,7 @@ body {
 .cat-container{
     background-color: rgba(49, 67, 84, 0.8);
     border: solid;
-    padding: 5px;
+    padding: 10px;
     border-radius: 5px;
     min-width: 200px;
     width: 23%;
@@ -147,11 +147,11 @@ body {
     margin-top: 5%;
     
     border-width: 2px;
-    padding-left: 30px;
+    
 }
 
 .top-tekst2 {
-    margin-left: 1%;
+    
     text-decoration: underline;
     font-size:25px ;
 }
