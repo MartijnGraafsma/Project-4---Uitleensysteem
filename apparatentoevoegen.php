@@ -99,8 +99,60 @@
    </form>
             
     </div>
+
+    
 </body>
 </html>
+
+<?php
+    $error_message = "";$success_message = "";
+
+    // haalt naam en bestandsnaam op
+
+     if(isset($_POST['submit'])){
+         $naam = trim($_POST['name']);
+         $foto = trim($_POST['image']);
+
+
+        $isValid = true;
+
+        // checkt of alle velden ingevuld zijn
+
+         if($naam == ''|| $foto == '' ){
+         $isValid = false;
+         $error_message = "Vul alle velden in.";
+         }
+
+         if($isValid){
+
+            // checkt of de naam beschikbaar is
+
+             $stmt = $con->prepare("SELECT * FROM categorieën WHERE Naam = ?");
+             $stmt -> bind_param("s", $naam);
+             $stmt -> execute();
+             $result = $stmt->get_result();
+             $stmt->close();
+             if($result->num_rows > 0){
+                 $isValid = false;
+                 $error_message = "Naam bestaat al";
+             }
+         }
+
+         // zet het in de db
+
+         if($isValid){
+             $insertSQL = "INSERT INTO categorieën (Naam,Foto) values(?,?)";
+             $stmt = $con-> prepare($insertSQL);
+             $stmt->bind_param("ss", $naam,$foto);
+             $stmt -> execute();
+             $stmt -> close();
+            
+            $success_message = "categorie toegevoegd";
+         }
+
+     }
+    ?>
+
 <?php
 include "config.php";
 if(isset($_POST['cat-voeg-toe'])) {
@@ -131,11 +183,10 @@ if(isset($_POST['voeg-toe'])) {
     $inleverdatum = $_POST['inleverdatum'];
     $categorie = $_POST['categorie'];
 
-    $file = addslashes(file_get_contents($_FILES["foto"]["tmp_name"]));
       //prepare en bind
         $insertSQL = "INSERT INTO apparaatoverzicht(`productnaam`, `beschrijving`,`beschikbaarheid`,`inleverdatum`,`categorieid`, `image`) values(?,?,?,?,?)";
         $stmt = $conn-> prepare($insertSQL);
-        $stmt->bind_param("sssss", $productnaam, $beschrijving, $beschikbaarheid,$inleverdatum,$categorie, $file);
+        $stmt->bind_param("sssss", $productnaam, $beschrijving, $beschikbaarheid,$inleverdatum,$categorie);
       //execute
         $stmt -> execute();
         $stmt -> close();

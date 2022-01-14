@@ -89,11 +89,29 @@ $opmerking=$_GET['opmerking'];
         <input class="apparaatnaam" type="text" name="uitgeleend" placeholder="Uitgeleend aan" value="<?php echo "$uitgeleend" ?>" required>
         <br>
         <input class="apparaatnaam" type="text" name="opmerking" placeholder="Nieuwe opmerking" required>
-        <a class="apparaatnaam"><?php echo "$opmerking" ?></a>
-        <button class="voeg-toe" type="submit" name="submit">Inleveren</button>
+        <!-- <a class="apparaatnaam"><?php echo "$opmerking" ?></a> -->
+        
       </form>
+
+<?php
+//haalt de opmerking uit de database
+$opmerkingg=$_GET['productnaam'];
+
+        $sql = "SELECT * FROM apparaatoverzicht WHERE productnaam='$opmerkingg'";
+        if ($result = $conn->query($sql)) {
+        foreach ($result as $row) {
+echo"<div class='Cat-popup' id='opmerking'>
+      <form action='' method='POST' class='Lever-in'>
+     <center>   <p class='Nieuw'> opmerking </p> <br>
+     <textarea class='apparaatnaam' placeholder=' " . $row['opmerking'] . "' readonly          ></textarea>      <br> <br> <br>
+      </center>
+       
+      </form>
+    </div>";
+        }}
+?>
+<button class="voeg-toe" type="submit" name="submit">Inleveren</button>
 </div>
-    
 
 
 
