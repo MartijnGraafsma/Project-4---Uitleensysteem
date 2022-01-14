@@ -1,41 +1,29 @@
-<!DOCTYPE html>
-<head>
-    <link rel="stylesheet" href="deviceinlever.css">
-    <link rel="stylesheet" href="header.css">
-</head>
-<body>
-  <!-- hieronder staat de navigatiebalk -->
-<div class="header" id="header">
-  <div class="innerheader">
-    <div class="logo_container">
-      <img class="FotoFP" src="logofriesepoort.png">
-    </div>
-       <div class="navbar">
-        <ul>
-          <a href="deviceinlever.php"><li>Apparaten inleveren</li></a>
-          <a href="uitloggen.php"><li>Uitloggen</li></a>
-          <a><li> <form  method='post' action="">
-        </form></li></a>
-        </ul>
-      <script>
-          function myFunction() {
-            var x = document.getElementById("header");
-            if (x.className === "header") {
-              x.className += " responsive";
-            } else {
-              x.className = "header";
-            }
-          }
-      </script>
-      </div>
-  </div>
-</div>  
+<?php
+if(isset($_POST['submit'])){
+    $id=$_POST['id'];
+    $productnaam=$_POST['productnaam'];
+    $beschrijving=$_POST['beschrijving'];
+    $beschikbaarheid=$_POST['beschikbaarheid'];
+    $inleverdatum=$_POST['inleverdatum'];
+    $email=$_POST['email'];
+    $van=$_POST['van'];
+    $uitgeleend="";
+    $opmerking=$_POST['opmerking'];
 
-<form action="deviceinlever2.php" method="POST" class="column">
-    <br>
-    <input class="opmerking" type="text" name="Van" placeholder="Van" required>
-  
-  <button class="inleveren" type="submit" name="knop">Inleveren</button>
-        
-
-        </body>
+    include "conn.php";
+    error_reporting(0);
+    $sql = "UPDATE apparaatoverzicht SET productnaam='$productnaam',beschrijving='$beschrijving'
+    ,inleverdatum='$inleverdatum',email='$email',van='$van',beschikbaarheid='$beschikbaarheid',
+    uitgeleend='$uitgeleend',opmerking='$opmerking' WHERE id='$id'";
+    
+    $data = mysqli_query($conn,$sql);
+    if($data){
+        echo "<script>alert('Het appparaat is inleverd!')</script>";
+        ?>
+        <META HTTP-EQUIV="Refresh" CONTENT="0; URL=apparaatoverzicht(docent).php">
+        <?php
+        }else{
+            echo "<script>alert('Sorry, uitlening is niet gelukt')</script>";
+        }
+}
+?>
