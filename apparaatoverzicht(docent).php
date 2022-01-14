@@ -114,7 +114,7 @@ function filterTable($query){
                                 <td><?= $proditems['productnaam']; ?></td>
                                 <td><?= $proditems['beschikbaarheid']; ?></td>
                                 <td><?= $proditems['inleverdatum']; ?></td>
-                                <td><a href='deviceuitlenen.php?id=$proditems[id]&productnaam=$proditems[productnaam]&beschrijving=$proditems[beschrijving]&beschikbaarheid=$proditems[beschikbaarheid]&inleverdatum=$proditems[inleverdatum]&email=$proditems[email]&van=$proditems[van]&uitgeleend=$proditems[uitgeleend]&opmerking=$proditems[opmerking]><button type='submit' id='editbtn'>Wijzigen</button></a></td>
+                                <td><a href='deviceuitlenen.php?id=$proditems[id]&productnaam=$proditems[productnaam]&beschrijving=$proditems[beschrijving]&beschikbaarheid=$proditems[beschikbaarheid]&inleverdatum=$proditems[inleverdatum]&student=$proditems[studentnr]&van=$proditems[van]&uitgeleend=$proditems[uitgeleend]&opmerking=$proditems[opmerking]><button type='submit' id='editbtn'>Wijzigen</button></a></td>
                             </tr>
                         <?php endforeach;
                 }
@@ -126,7 +126,7 @@ function filterTable($query){
                     <td>".$row['productnaam']."</td>
                     <td>".$row['beschikbaarheid']."</td>
                     <td>".$row['inleverdatum']."</td>
-                    <td><a href='deviceuitlenen.php?id=$row[id]&productnaam=$row[productnaam]&beschrijving=$row[beschrijving]&beschikbaarheid=$row[beschikbaarheid]&inleverdatum=$row[inleverdatum]&email=$row[email]&van=$row[van]&uitgeleend=$row[uitgeleend]&opmerking=$row[opmerking]><button type='submit' id='editbtn'>Wijzigen</button></a></td>
+                    <td><a href='deviceuitlenen.php?id=$row[id]&productnaam=$row[productnaam]&beschrijving=$row[beschrijving]&beschikbaarheid=$row[beschikbaarheid]&inleverdatum=$row[inleverdatum]&studentnr=$row[studentnr]&van=$row[van]&uitgeleend=$row[uitgeleend]&opmerking=$row[opmerking]><button type='submit' id='editbtn'>Wijzigen</button></a></td>
                 </tr>
                 "?>
                 <?php endwhile;
