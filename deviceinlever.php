@@ -5,7 +5,7 @@ if(isset($_POST['submit'])){
     $beschrijving=$_POST['beschrijving'];
     $beschikbaarheid=$_POST['beschikbaarheid'];
     $inleverdatum=$_POST['inleverdatum'];
-    $email=$_POST['email'];
+    $studentnr=$_POST['studentnr'];
     $van=$_POST['van'];
     $uitgeleend="";
     $opmerking=$_POST['opmerking'];
@@ -13,7 +13,7 @@ if(isset($_POST['submit'])){
     include "conn.php";
     error_reporting(0);
     $sql = "UPDATE apparaatoverzicht SET productnaam='$productnaam',beschrijving='$beschrijving'
-    ,inleverdatum='$inleverdatum',email='$email',van='$van',beschikbaarheid='$beschikbaarheid',
+    ,inleverdatum='$inleverdatum',studentnr='$studentnr',van='$van',beschikbaarheid='$beschikbaarheid',
     uitgeleend='$uitgeleend',opmerking='$opmerking' WHERE id='$id'";
     
     $data = mysqli_query($conn,$sql);
