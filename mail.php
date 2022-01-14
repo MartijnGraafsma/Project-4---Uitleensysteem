@@ -5,19 +5,14 @@ if(isset($_POST['submit'])){
     $beschrijving=$_POST['beschrijving'];
     $beschikbaarheid=$_POST['beschikbaarheid'];
     $inleverdatum=$_POST['inleverdatum'];
-    $email=$_POST['email'];
+    $studentnr=$_POST['studentnr'];
     $van=$_POST['van'];
     $uitgeleend=$_POST['uitgeleend'];
     
-    $receiver = "$email";
+    $receiver = "$studentnr".'@edu.rocfriesepoort.nl';
     $subject= "U heeft een apparaat geleend";
-    $body = "Beste $uitgeleend, \r\n u heeft een $productnaam geleend van $van
-    \r\n U moet voor $inleverdatum inleveren
-    
-    Veel plezier!
-    
-    Met vriendelijke groet,
-    ROC Friese Poort";
+    $body = "Beste $uitgeleend, \r\nu heeft een $productnaam geleend van $van
+    \r\nU moet voor $inleverdatum inleveren. \r\n\r\nVeel plezier!\r\n\r\nMet vriendelijke groet,\r\nROC Friese Poort";
     
     if(mail($receiver, $subject, $body)){
         echo "<script>alert('Het is gelukt om een apparaat uit te lenen!')</script>";
@@ -31,7 +26,7 @@ if(isset($_POST['submit'])){
     include "conn.php";
     error_reporting(0);
     $sql = "UPDATE apparaatoverzicht SET productnaam='$productnaam',beschrijving='$beschrijving'
-    ,inleverdatum='$inleverdatum',email='$email',van='$van',beschikbaarheid='$beschikbaarheid',
+    ,inleverdatum='$inleverdatum',studentnr='$studentnr',van='$van',beschikbaarheid='$beschikbaarheid',
     uitgeleend='$uitgeleend' WHERE id='$id'";
     
     $data = mysqli_query($conn,$sql);
