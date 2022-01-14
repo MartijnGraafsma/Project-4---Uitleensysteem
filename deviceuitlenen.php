@@ -6,7 +6,7 @@ $id=$_GET['id'];
 $productnaam=$_GET['productnaam'];
 $beschrijving=$_GET['beschrijving'];
 $inleverdatum=$_GET['inleverdatum'];
-$email=$_GET['email'];
+$studentnr=$_GET['studentnr'];
 $van=$_GET['van'];
 $uitgeleend=$_GET['uitgeleend'];
 $opmerking=$_GET['opmerking'];
@@ -59,7 +59,7 @@ $opmerking=$_GET['opmerking'];
         <br>
         <input class="apparaatnaam" type="text" name="uitgeleend" value="<?php echo "$uitgeleend" ?>" placeholder="Uitgeleend aan" required>
         <br>
-        <input class="apparaatnaam" type="email" name="email" value="<?php echo "$email" ?>" placeholder="Email" required>
+        <input class="apparaatnaam" type="text" name="studentnr" value="<?php echo "$studentnr" ?>" placeholder="studentnr" required>
         <br>
         <input class="apparaatnaam" type="date" name="inleverdatum" placeholder="Inleverdatum" required>
         <br>
@@ -83,7 +83,7 @@ $opmerking=$_GET['opmerking'];
         <input name="beschikbaarheid" value="Beschikbaar" hidden>
         <input name="beschrijving" value="<?php echo "$beschrijving" ?>" hidden> 
         <input name="van" value="" hidden>
-        <input name="email" value="" hidden>
+        <input name="studentnr" value="" hidden>
         <input name="inleverdatum" value="/" hidden>
         <br>
         <input class="apparaatnaam" type="text" name="uitgeleend" placeholder="Uitgeleend aan" value="<?php echo "$uitgeleend" ?>" required>
