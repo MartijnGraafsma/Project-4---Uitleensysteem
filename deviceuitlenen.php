@@ -55,13 +55,13 @@ $opmerking=$_GET['opmerking'];
         <input name="beschikbaarheid" value="Uitgeleend" hidden>
         <input name="beschrijving" value="<?php echo "$beschrijving" ?>" hidden>
         <br>
-        <input class="apparaatnaam" type="text" name="van" value="<?php echo "$van" ?>" placeholder="Van" required>
+        <input class="apparaatnaam" type="text" name="van" value="<?php echo "$van" ?>" placeholder="Van" minlength="2" maxlength="20" required>
         <br>
-        <input class="apparaatnaam" type="text" name="uitgeleend" value="<?php echo "$uitgeleend" ?>" placeholder="Uitgeleend aan" required>
+        <input class="apparaatnaam" type="text" name="uitgeleend" value="<?php echo "$uitgeleend" ?>" placeholder="Uitgeleend aan" minlength="2" maxlength="20" required>
         <br>
-        <input class="apparaatnaam" type="text" name="studentnr" value="<?php echo "$studentnr" ?>" placeholder="studentnr" required>
+        <input class="apparaatnaam" type="text" name="studentnr" value="<?php echo "$studentnr" ?>" placeholder="studentnr" minlength="4" maxlength="8"required>
         <br>
-        <input class="apparaatnaam" type="date" name="inleverdatum" placeholder="Inleverdatum" required>
+        <input class="apparaatnaam" type="date" name="inleverdatum" id="datePickerId" placeholder="Inleverdatum" required>
         <br>
         <button class="voeg-toe" type="submit" name="submit">Leen uit</button>
       </form>
@@ -86,7 +86,7 @@ $opmerking=$_GET['opmerking'];
         <br>
         <input class="apparaatnaam" type="text" name="uitgeleend" placeholder="Uitgeleend aan" value="<?php echo "$uitgeleend" ?>" required>
         <br>
-        <input class="apparaatnaam" type="text" name="opmerking" placeholder="Nieuwe opmerking" required>
+        <input class="apparaatnaam" type="text" name="opmerking" placeholder="Nieuwe opmerking" minlength="5" maxlength="30" required>
       
      
         
@@ -115,7 +115,17 @@ echo"<div class='Cat-popup' id='opmerking'>
 
 
 
-</body>   
+</body>
+
+<script>
+var date= new Date();
+var year= date.getFullYear();
+var month= date.getMonth()+1;
+var todayDate = String(date.getDate()).padStart(2,'0');
+var datePattern = year + '-' + month + '-' + todayDate;
+document.getElementById("datePickerId").value = datePattern;
+datePickerId.min = new Date().toLocaleDateString('en-ca')
+</script>
 </html>
 
 
